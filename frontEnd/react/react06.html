@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>react 中防抖函数的实现 | 绅士喵呜的技术博客</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="  ">
+    <link rel="preload" href="/assets/css/0.styles.e7d7bc45.css" as="style"><link rel="preload" href="/assets/js/app.f09e1a8f.js" as="script"><link rel="preload" href="/assets/js/3.6380eba5.js" as="script"><link rel="preload" href="/assets/js/1.86ff7d31.js" as="script"><link rel="preload" href="/assets/js/88.e36c88ec.js" as="script"><link rel="prefetch" href="/assets/js/10.5517d1b6.js"><link rel="prefetch" href="/assets/js/100.92371dc9.js"><link rel="prefetch" href="/assets/js/11.0573e311.js"><link rel="prefetch" href="/assets/js/12.0875f58d.js"><link rel="prefetch" href="/assets/js/13.71642ae4.js"><link rel="prefetch" href="/assets/js/14.36f8acdb.js"><link rel="prefetch" href="/assets/js/15.6215165a.js"><link rel="prefetch" href="/assets/js/16.485c8436.js"><link rel="prefetch" href="/assets/js/17.03710596.js"><link rel="prefetch" href="/assets/js/18.1935d804.js"><link rel="prefetch" href="/assets/js/19.1389efb6.js"><link rel="prefetch" href="/assets/js/20.083b5e26.js"><link rel="prefetch" href="/assets/js/21.6074112f.js"><link rel="prefetch" href="/assets/js/22.7ee932d9.js"><link rel="prefetch" href="/assets/js/23.b5b2417f.js"><link rel="prefetch" href="/assets/js/24.16e24b97.js"><link rel="prefetch" href="/assets/js/25.c0f615e7.js"><link rel="prefetch" href="/assets/js/26.54e45f38.js"><link rel="prefetch" href="/assets/js/27.1a2c9280.js"><link rel="prefetch" href="/assets/js/28.b770ec38.js"><link rel="prefetch" href="/assets/js/29.acca8bd0.js"><link rel="prefetch" href="/assets/js/30.d2532d72.js"><link rel="prefetch" href="/assets/js/31.eb2b3d90.js"><link rel="prefetch" href="/assets/js/32.6565c348.js"><link rel="prefetch" href="/assets/js/33.c7bc65b2.js"><link rel="prefetch" href="/assets/js/34.1bf2f3da.js"><link rel="prefetch" href="/assets/js/35.d3385f69.js"><link rel="prefetch" href="/assets/js/36.5cfe3ec3.js"><link rel="prefetch" href="/assets/js/37.26aef80a.js"><link rel="prefetch" href="/assets/js/38.a35b1680.js"><link rel="prefetch" href="/assets/js/39.8a99a996.js"><link rel="prefetch" href="/assets/js/4.8ca4a540.js"><link rel="prefetch" href="/assets/js/40.3ccc91a6.js"><link rel="prefetch" href="/assets/js/41.d6b84276.js"><link rel="prefetch" href="/assets/js/42.bf751eb9.js"><link rel="prefetch" href="/assets/js/43.410217ff.js"><link rel="prefetch" href="/assets/js/44.1500d4ec.js"><link rel="prefetch" href="/assets/js/45.37818d2d.js"><link rel="prefetch" href="/assets/js/46.e865b48f.js"><link rel="prefetch" href="/assets/js/47.e854ab11.js"><link rel="prefetch" href="/assets/js/48.28bcbd91.js"><link rel="prefetch" href="/assets/js/49.cb7462d2.js"><link rel="prefetch" href="/assets/js/5.3153c171.js"><link rel="prefetch" href="/assets/js/50.2217c9c1.js"><link rel="prefetch" href="/assets/js/51.cfadb2b8.js"><link rel="prefetch" href="/assets/js/52.752ecedc.js"><link rel="prefetch" href="/assets/js/53.7c8e434c.js"><link rel="prefetch" href="/assets/js/54.ec8b8cb9.js"><link rel="prefetch" href="/assets/js/55.e86e5fbd.js"><link rel="prefetch" href="/assets/js/56.19995147.js"><link rel="prefetch" href="/assets/js/57.c3f8dd98.js"><link rel="prefetch" href="/assets/js/58.d0d3ab90.js"><link rel="prefetch" href="/assets/js/59.04d9b9ea.js"><link rel="prefetch" href="/assets/js/6.f20cbf4e.js"><link rel="prefetch" href="/assets/js/60.1b51b1c9.js"><link rel="prefetch" href="/assets/js/61.ca052798.js"><link rel="prefetch" href="/assets/js/62.dbb692ec.js"><link rel="prefetch" href="/assets/js/63.f254ed9a.js"><link rel="prefetch" href="/assets/js/64.f27c1117.js"><link rel="prefetch" href="/assets/js/65.da43f37a.js"><link rel="prefetch" href="/assets/js/66.ac41ad1b.js"><link rel="prefetch" href="/assets/js/67.139f543f.js"><link rel="prefetch" href="/assets/js/68.9281c085.js"><link rel="prefetch" href="/assets/js/69.bec927a5.js"><link rel="prefetch" href="/assets/js/7.08bf542b.js"><link rel="prefetch" href="/assets/js/70.db0613c6.js"><link rel="prefetch" href="/assets/js/71.0c3d0498.js"><link rel="prefetch" href="/assets/js/72.aee3f326.js"><link rel="prefetch" href="/assets/js/73.76f9ab8f.js"><link rel="prefetch" href="/assets/js/74.03ec551c.js"><link rel="prefetch" href="/assets/js/75.96bd35fd.js"><link rel="prefetch" href="/assets/js/76.8eea9d5c.js"><link rel="prefetch" href="/assets/js/77.13908ef5.js"><link rel="prefetch" href="/assets/js/78.609cb13a.js"><link rel="prefetch" href="/assets/js/79.0d4df250.js"><link rel="prefetch" href="/assets/js/8.215181eb.js"><link rel="prefetch" href="/assets/js/80.73ae2e4f.js"><link rel="prefetch" href="/assets/js/81.3927ddde.js"><link rel="prefetch" href="/assets/js/82.86b457e2.js"><link rel="prefetch" href="/assets/js/83.93f4c999.js"><link rel="prefetch" href="/assets/js/84.91f0b5d9.js"><link rel="prefetch" href="/assets/js/85.0e943352.js"><link rel="prefetch" href="/assets/js/86.82041574.js"><link rel="prefetch" href="/assets/js/87.5dd34590.js"><link rel="prefetch" href="/assets/js/89.ded599d3.js"><link rel="prefetch" href="/assets/js/9.89288b36.js"><link rel="prefetch" href="/assets/js/90.60714017.js"><link rel="prefetch" href="/assets/js/91.06074398.js"><link rel="prefetch" href="/assets/js/92.26998e97.js"><link rel="prefetch" href="/assets/js/93.3bcbb0d7.js"><link rel="prefetch" href="/assets/js/94.bf2a69b4.js"><link rel="prefetch" href="/assets/js/95.dd3b1169.js"><link rel="prefetch" href="/assets/js/96.26bbe59b.js"><link rel="prefetch" href="/assets/js/97.b883aa89.js"><link rel="prefetch" href="/assets/js/98.cc07f12e.js"><link rel="prefetch" href="/assets/js/99.d38481a5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e7d7bc45.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>绅士喵呜的技术博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">绅士喵呜的技术博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    hentaimiao
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>66</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <ul class="sidebar-links"><li><a href="/frontEnd/react/" aria-current="page" class="sidebar-link">React.js 可视化编辑工具</a></li><li><a href="/frontEnd/react/react01.html" class="sidebar-link">React 整理手册</a></li><li><a href="/frontEnd/react/react02.html" class="sidebar-link">React Hooks 体系设计</a></li><li><a href="/frontEnd/react/react03.html" class="sidebar-link">Immer.js 精读</a></li><li><a href="/frontEnd/react/react04.html" class="sidebar-link">使用 Immer 优化 Reducer</a></li><li><a href="/frontEnd/react/react05.html" class="sidebar-link">使用 useReducer 和 TypeScript 优化 React 上下文</a></li><li><a href="/frontEnd/react/react06.html" aria-current="page" class="active sidebar-link">react 中防抖函数的实现</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>react 中防抖函数的实现</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>react 中防抖函数的实现</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>hentaimiao</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-11-17</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>React</span><span class="tag-item" data-v-3b7f5bdf>Hooks</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>停止操作达一定时间才进行函数执行，是一个高阶函数，基本人人都会，React Hooks 中需要对 effect、state 和 fn 进行额外实现。</p> <h2 id="防抖函数"><a href="#防抖函数" aria-hidden="true" class="header-anchor">#</a> 防抖函数</h2> <p>停止操作达一定时间才进行函数执行，是一个高阶函数，基本人人都会，就不详说了，直接实现：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> ms</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> timer<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
+      timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> ms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><em>实际开发中直接使用 <code>lodash._debounce</code> 就行了，不要自己写</em></p> <h2 id="hooks-中的防抖函数"><a href="#hooks-中的防抖函数" aria-hidden="true" class="header-anchor">#</a> hooks 中的防抖函数</h2> <h3 id="测试用例"><a href="#测试用例" aria-hidden="true" class="header-anchor">#</a> 测试用例</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>counter1<span class="token punctuation">,</span> setCounter1<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>counter2<span class="token punctuation">,</span> setCounter2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useDebounce</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token string">'click1'</span><span class="token punctuation">)</span>
+    <span class="token function">setCounter1</span><span class="token punctuation">(</span>counter1 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> t <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setCounter2</span><span class="token punctuation">(</span><span class="token parameter">x</span> <span class="token operator">=&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">clearInterval</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>undefined<span class="token punctuation">,</span> t<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> padding<span class="token punctuation">:</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>Button
+      onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token operator">&gt;</span>click<span class="token operator">&lt;</span><span class="token operator">/</span>Button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>counter1<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>counter2<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这时候你会怎么实现 useDebounce 函数呢？像这样？</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">function</span> <span class="token function">useDebounce</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> time</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>那你人没了！</strong><code>useCallback</code> 都救不了你。</p> <p>因为 react hooks 每次渲染，都会重新执行一遍 hooks，<code>useDebounce</code> 被重新执行了，核心的 <code>timer</code> 自然也就无效了。</p> <h3 id="解决方案"><a href="#解决方案" aria-hidden="true" class="header-anchor">#</a> 解决方案</h3> <p>用 <code>useRef</code> 缓存机制可以很轻松地解决这个问题：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">function</span> <span class="token function">useThrottle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> dep <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> current <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">{</span> fn<span class="token punctuation">,</span> timer<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    current<span class="token punctuation">.</span>fn <span class="token operator">=</span> fn<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>current<span class="token punctuation">.</span>timer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      current<span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">delete</span> current<span class="token punctuation">.</span>timer<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      current<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> dep<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="ahooks-中的-usedebounce"><a href="#ahooks-中的-usedebounce" aria-hidden="true" class="header-anchor">#</a> ahooks 中的 useDebounce</h2> <h3 id="usedebouncefn"><a href="#usedebouncefn" aria-hidden="true" class="header-anchor">#</a> useDebounceFn</h3> <p>处理函数，使用 <code>lodash</code> 的 <code>debounce</code> 函数和自定义的 <code>useCreation</code> （<code>useMemo</code> 和 <code>useRef</code> 更好的实现，其实就是手动添加依赖项，避免函数/对象的重复声明），我们来看一下源码：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> debounce <span class="token keyword">from</span> <span class="token string">'lodash.debounce'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> useCreation <span class="token keyword">from</span> <span class="token string">'../useCreation'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> DebounceOptions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../useDebounce/debounceOptions'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> <span class="token function-variable function">Fn</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args<span class="token punctuation">:</span> <span class="token builtin">any</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">any</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> useDebounceFn<span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token class-name">Fn</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>fn<span class="token punctuation">:</span> <span class="token constant">T</span><span class="token punctuation">,</span> options<span class="token operator">?</span><span class="token punctuation">:</span> DebounceOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fnRef <span class="token operator">=</span> useRef<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fnRef<span class="token punctuation">.</span>current <span class="token operator">=</span> fn<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> wait <span class="token operator">=</span> options<span class="token operator">?</span><span class="token punctuation">.</span>wait <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> debounced <span class="token operator">=</span> <span class="token function">useCreation</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+      debounce<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args<span class="token punctuation">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> fnRef<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token constant">T</span><span class="token punctuation">,</span>
+        wait<span class="token punctuation">,</span>
+        options<span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    run<span class="token punctuation">:</span> <span class="token punctuation">(</span>debounced <span class="token keyword">as</span> <span class="token builtin">unknown</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token constant">T</span><span class="token punctuation">,</span>
+    cancel<span class="token punctuation">:</span> debounced<span class="token punctuation">.</span>cancel<span class="token punctuation">,</span>
+    flush<span class="token punctuation">:</span> debounced<span class="token punctuation">.</span>flush<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> useDebounceFn<span class="token punctuation">;</span>
+</code></pre></div><p>基于 <code>lodash._debounce</code>，不熟悉的建议配合 <code>lodash</code> 源码，或者一些<a href="https://juejin.im/post/6844903990639984654" target="_blank" rel="noopener noreferrer">别人心得<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>此 hooks 将一个 react hooks 中的函数转化为防抖函数</p> <h3 id="usedebounce"><a href="#usedebounce" aria-hidden="true" class="header-anchor">#</a> useDebounce</h3> <p>处理值，基于 <code>useDebounceFn</code>，函数每次渲染都会更新值，我们对这个更新值的动作（<code>setState</code>）进行防抖处理：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> useDebounceFn <span class="token keyword">from</span> <span class="token string">'../useDebounceFn'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> DebounceOptions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./debounceOptions'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> useDebounce<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token constant">T</span><span class="token punctuation">,</span> options<span class="token operator">?</span><span class="token punctuation">:</span> DebounceOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>debounced<span class="token punctuation">,</span> setDebounced<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> run <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useDebounceFn</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setDebounced</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>value<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> debounced<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> useDebounce<span class="token punctuation">;</span>
+</code></pre></div><h3 id="usedebounceeffect"><a href="#usedebounceeffect" aria-hidden="true" class="header-anchor">#</a> useDebounceEffect</h3> <p>处理副作用，传入副作用函数，依赖数组，延时数据：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> EffectCallback<span class="token punctuation">,</span> DependencyList<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> DebounceOptions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../useDebounce/debounceOptions'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> useDebounceFn <span class="token keyword">from</span> <span class="token string">'../useDebounceFn'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> useUpdateEffect <span class="token keyword">from</span> <span class="token string">'../useUpdateEffect'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">useDebounceEffect</span><span class="token punctuation">(</span>
+  <span class="token parameter">effect<span class="token punctuation">:</span> EffectCallback<span class="token punctuation">,</span>
+  deps<span class="token operator">?</span><span class="token punctuation">:</span> DependencyList<span class="token punctuation">,</span>
+  options<span class="token operator">?</span><span class="token punctuation">:</span> DebounceOptions<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>flag<span class="token punctuation">,</span> setFlag<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> run <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useDebounceFn</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setFlag</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> deps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useUpdateEffect</span><span class="token punctuation">(</span>effect<span class="token punctuation">,</span> <span class="token punctuation">[</span>flag<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> useDebounceEffect<span class="token punctuation">;</span>
+</code></pre></div><p>倒过来看，<code>effect</code> 只在 <code>flag</code> 变化的时候被 <code>useUpdateEffect</code> 返回，对依赖数组 <code>deps</code>的变更进行防抖，检测到不抖了，更新一下整个函数，执行 <code>effect</code>。</p> <h2 id="react-use-中的-usedebounce"><a href="#react-use-中的-usedebounce" aria-hidden="true" class="header-anchor">#</a> react-use 中的 useDebounce</h2> <h3 id="实现"><a href="#实现" aria-hidden="true" class="header-anchor">#</a> 实现</h3> <p>看了下源码，感觉语义化没有 <code>ahooks</code> 做的好，但这样反而可以提醒用户 <code>UI = F(State)</code>，只要关注数据更新的防抖，就能满足大部分 React 的场景，这样子减轻心智负担也不错：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> DependencyList<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> useTimeoutFn <span class="token keyword">from</span> <span class="token string">'./useTimeoutFn'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> UseDebounceReturn <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">boolean</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">useDebounce</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">:</span> <span class="token builtin">Function</span><span class="token punctuation">,</span> ms<span class="token punctuation">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> deps<span class="token punctuation">:</span> DependencyList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span> UseDebounceReturn <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isReady<span class="token punctuation">,</span> cancel<span class="token punctuation">,</span> reset<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useTimeoutFn</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> ms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span>reset<span class="token punctuation">,</span> deps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>isReady<span class="token punctuation">,</span> cancel<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useCallback<span class="token punctuation">,</span> useEffect<span class="token punctuation">,</span> useRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> UseTimeoutFnReturn <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">boolean</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">useTimeoutFn</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">:</span> <span class="token builtin">Function</span><span class="token punctuation">,</span> ms<span class="token punctuation">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span> UseTimeoutFnReturn <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> ready <span class="token operator">=</span> useRef<span class="token operator">&lt;</span><span class="token builtin">boolean</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> timeout <span class="token operator">=</span> useRef<span class="token operator">&lt;</span>ReturnType<span class="token operator">&lt;</span><span class="token keyword">typeof</span> setTimeout<span class="token operator">&gt;&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> callback <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> isReady <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> ready<span class="token punctuation">.</span>current<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token keyword">set</span> <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    ready<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    timeout<span class="token punctuation">.</span>current <span class="token operator">&amp;&amp;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">.</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    timeout<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      ready<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      callback<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> ms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> clear <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    ready<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    timeout<span class="token punctuation">.</span>current <span class="token operator">&amp;&amp;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">.</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// update ref when function changes</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    callback<span class="token punctuation">.</span>current <span class="token operator">=</span> fn<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// set on mount, clear on unmount</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> clear<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>isReady<span class="token punctuation">,</span> clear<span class="token punctuation">,</span> <span class="token keyword">set</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>react-use</code> 主要是借助一个自定义的延时函数做函数的防抖，延时函数依然使用缓存 <code>useRef</code>。</p> <h3 id="应用"><a href="#应用" aria-hidden="true" class="header-anchor">#</a> 应用</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> <span class="token function-variable function">Demo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>state<span class="token punctuation">,</span> setState<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">'Typing stopped'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>val<span class="token punctuation">,</span> setVal<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>debouncedValue<span class="token punctuation">,</span> setDebouncedValue<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> cancel<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useDebounce</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setState</span><span class="token punctuation">(</span><span class="token string">'Typing stopped'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">setDebouncedValue</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token number">2000</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>val<span class="token punctuation">]</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>input
+        <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">&quot;text&quot;</span>
+        value<span class="token operator">=</span><span class="token punctuation">{</span>val<span class="token punctuation">}</span>
+        placeholder<span class="token operator">=</span><span class="token string">&quot;Debounced input&quot;</span>
+        onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> currentTarget <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">setState</span><span class="token punctuation">(</span><span class="token string">'Waiting for typing to stop...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">setVal</span><span class="token punctuation">(</span>currentTarget<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>state<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        Debounced value<span class="token punctuation">:</span> <span class="token punctuation">{</span>debouncedValue<span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>cancel<span class="token punctuation">}</span><span class="token operator">&gt;</span>Cancel debounce<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="react-hooks-中的-usedebounce"><a href="#react-hooks-中的-usedebounce" aria-hidden="true" class="header-anchor">#</a> react-hooks 中的 useDebounce</h2> <p><code>react-hooks</code> 的实现思路和 <code>ahooks</code> 类似，<code>ahooks</code> 基于 <code>lodash._debounce</code>，<code>react-hooks</code> 则基于 <code>npm/debounce</code>，同样都是下载量很高的老牌函数库，可靠放心。</p> <h3 id="usedebouncedcallback"><a href="#usedebouncedcallback" aria-hidden="true" class="header-anchor">#</a> useDebouncedCallback</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> debounce <span class="token keyword">from</span> <span class="token string">'debounce'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> useDebouncedCallback<span class="token operator">&lt;</span><span class="token constant">C</span> <span class="token keyword">extends</span> <span class="token class-name">Function</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>callback<span class="token punctuation">:</span> <span class="token constant">C</span><span class="token punctuation">,</span> wait<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token constant">C</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> debouncedCallback <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>wait <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token function">debounce</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> wait<span class="token punctuation">)</span> <span class="token punctuation">:</span> callback<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>callback<span class="token punctuation">,</span> wait<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> callback <span class="token operator">=</span> debouncedCallback <span class="token keyword">as</span> <span class="token builtin">any</span>
+      callback<span class="token punctuation">.</span>clear <span class="token operator">&amp;&amp;</span> callback<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>debouncedCallback<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> debouncedCallback
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>useMemo</code> 和 <code>useRef</code> 作用是一样的，完全可以用 <code>useRef</code> 实现 <code>useMemo</code>，两者的实现差别不大，空依赖数组的 <code>useMemo</code> 开销也和 <code>useRef</code> 相当。</p> <h3 id="usedebouncedeffect"><a href="#usedebouncedeffect" aria-hidden="true" class="header-anchor">#</a> useDebouncedEffect</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect<span class="token punctuation">,</span> useMemo<span class="token punctuation">,</span> useRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token comment">// eslint-disable-next-line @typescript-eslint/no-empty-function</span>
+<span class="token keyword">const</span> <span class="token function-variable function">noop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> useDebouncedEffect<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function-variable function">callback</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token constant">T</span><span class="token punctuation">,</span> wait<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> callbackRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> cleanUpRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span>noop<span class="token punctuation">)</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    callbackRef<span class="token punctuation">.</span>current <span class="token operator">=</span> callback
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>callback<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>wait <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+
+    cleanUpRef<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cleanUpRef<span class="token punctuation">.</span>current <span class="token operator">=</span> noop
+
+    <span class="token keyword">const</span> callback <span class="token operator">=</span> callbackRef<span class="token punctuation">.</span>current
+    <span class="token keyword">const</span> <span class="token function-variable function">trigger</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> cleanUp <span class="token operator">=</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> cleanUp <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cleanUpRef<span class="token punctuation">.</span>current <span class="token operator">=</span> cleanUp
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cleanUp <span class="token operator">!==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// eslint-disable-next-line no-console</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'useDebouncedEffect callback should return undefined or a clean-up function'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> tick <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>trigger<span class="token punctuation">,</span> wait<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>tick<span class="token punctuation">)</span>
+      cleanUpRef<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      cleanUpRef<span class="token punctuation">.</span>current <span class="token operator">=</span> noop
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> wait<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>心智负担暴涨，作者的想法很有趣，我一开始看不太懂，他从哪里获得的灵感呢 QWQ</p> <p>没有依赖 <code>debounce</code> 函数，大体就是围绕 <code>cleanUpRef</code> 做数据的更新，延时，触发，清空</p> <h3 id="usedebouncedvalue"><a href="#usedebouncedvalue" aria-hidden="true" class="header-anchor">#</a> useDebouncedValue</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">function</span> useDebouncedValue<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token constant">T</span><span class="token punctuation">,</span> wait<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token constant">T</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>debouncedValue<span class="token punctuation">,</span> setDebouncedValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+  <span class="token function">useDebouncedEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setDebouncedValue</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">,</span> wait<span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> wait <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> debouncedValue <span class="token punctuation">:</span> value
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <p>最终决定选用 <code>react-hooks</code> 的 <code>debounce</code> 实现方案，使用场景足够，同时外部依赖少。</p></div> <footer class="page-edit" style="display:none;"><div class="edit-link"><a href="https://github.com/hentai-miao/blog-vuepress/edit/master/docs/frontEnd/react/react06.md" target="_blank" rel="noopener noreferrer">编辑此页面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最终更新于: </span> <span class="time">11/18/2020, 4:11:25 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.f09e1a8f.js" defer></script><script src="/assets/js/3.6380eba5.js" defer></script><script src="/assets/js/1.86ff7d31.js" defer></script><script src="/assets/js/88.e36c88ec.js" defer></script>
+  </body>
+</html>

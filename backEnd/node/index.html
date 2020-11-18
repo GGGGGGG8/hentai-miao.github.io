@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>超详细 Node.js 上手 | 绅士喵呜的技术博客</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="  ">
+    <link rel="preload" href="/assets/css/0.styles.e7d7bc45.css" as="style"><link rel="preload" href="/assets/js/app.f09e1a8f.js" as="script"><link rel="preload" href="/assets/js/3.6380eba5.js" as="script"><link rel="preload" href="/assets/js/1.86ff7d31.js" as="script"><link rel="preload" href="/assets/js/21.6074112f.js" as="script"><link rel="prefetch" href="/assets/js/10.5517d1b6.js"><link rel="prefetch" href="/assets/js/100.92371dc9.js"><link rel="prefetch" href="/assets/js/11.0573e311.js"><link rel="prefetch" href="/assets/js/12.0875f58d.js"><link rel="prefetch" href="/assets/js/13.71642ae4.js"><link rel="prefetch" href="/assets/js/14.36f8acdb.js"><link rel="prefetch" href="/assets/js/15.6215165a.js"><link rel="prefetch" href="/assets/js/16.485c8436.js"><link rel="prefetch" href="/assets/js/17.03710596.js"><link rel="prefetch" href="/assets/js/18.1935d804.js"><link rel="prefetch" href="/assets/js/19.1389efb6.js"><link rel="prefetch" href="/assets/js/20.083b5e26.js"><link rel="prefetch" href="/assets/js/22.7ee932d9.js"><link rel="prefetch" href="/assets/js/23.b5b2417f.js"><link rel="prefetch" href="/assets/js/24.16e24b97.js"><link rel="prefetch" href="/assets/js/25.c0f615e7.js"><link rel="prefetch" href="/assets/js/26.54e45f38.js"><link rel="prefetch" href="/assets/js/27.1a2c9280.js"><link rel="prefetch" href="/assets/js/28.b770ec38.js"><link rel="prefetch" href="/assets/js/29.acca8bd0.js"><link rel="prefetch" href="/assets/js/30.d2532d72.js"><link rel="prefetch" href="/assets/js/31.eb2b3d90.js"><link rel="prefetch" href="/assets/js/32.6565c348.js"><link rel="prefetch" href="/assets/js/33.c7bc65b2.js"><link rel="prefetch" href="/assets/js/34.1bf2f3da.js"><link rel="prefetch" href="/assets/js/35.d3385f69.js"><link rel="prefetch" href="/assets/js/36.5cfe3ec3.js"><link rel="prefetch" href="/assets/js/37.26aef80a.js"><link rel="prefetch" href="/assets/js/38.a35b1680.js"><link rel="prefetch" href="/assets/js/39.8a99a996.js"><link rel="prefetch" href="/assets/js/4.8ca4a540.js"><link rel="prefetch" href="/assets/js/40.3ccc91a6.js"><link rel="prefetch" href="/assets/js/41.d6b84276.js"><link rel="prefetch" href="/assets/js/42.bf751eb9.js"><link rel="prefetch" href="/assets/js/43.410217ff.js"><link rel="prefetch" href="/assets/js/44.1500d4ec.js"><link rel="prefetch" href="/assets/js/45.37818d2d.js"><link rel="prefetch" href="/assets/js/46.e865b48f.js"><link rel="prefetch" href="/assets/js/47.e854ab11.js"><link rel="prefetch" href="/assets/js/48.28bcbd91.js"><link rel="prefetch" href="/assets/js/49.cb7462d2.js"><link rel="prefetch" href="/assets/js/5.3153c171.js"><link rel="prefetch" href="/assets/js/50.2217c9c1.js"><link rel="prefetch" href="/assets/js/51.cfadb2b8.js"><link rel="prefetch" href="/assets/js/52.752ecedc.js"><link rel="prefetch" href="/assets/js/53.7c8e434c.js"><link rel="prefetch" href="/assets/js/54.ec8b8cb9.js"><link rel="prefetch" href="/assets/js/55.e86e5fbd.js"><link rel="prefetch" href="/assets/js/56.19995147.js"><link rel="prefetch" href="/assets/js/57.c3f8dd98.js"><link rel="prefetch" href="/assets/js/58.d0d3ab90.js"><link rel="prefetch" href="/assets/js/59.04d9b9ea.js"><link rel="prefetch" href="/assets/js/6.f20cbf4e.js"><link rel="prefetch" href="/assets/js/60.1b51b1c9.js"><link rel="prefetch" href="/assets/js/61.ca052798.js"><link rel="prefetch" href="/assets/js/62.dbb692ec.js"><link rel="prefetch" href="/assets/js/63.f254ed9a.js"><link rel="prefetch" href="/assets/js/64.f27c1117.js"><link rel="prefetch" href="/assets/js/65.da43f37a.js"><link rel="prefetch" href="/assets/js/66.ac41ad1b.js"><link rel="prefetch" href="/assets/js/67.139f543f.js"><link rel="prefetch" href="/assets/js/68.9281c085.js"><link rel="prefetch" href="/assets/js/69.bec927a5.js"><link rel="prefetch" href="/assets/js/7.08bf542b.js"><link rel="prefetch" href="/assets/js/70.db0613c6.js"><link rel="prefetch" href="/assets/js/71.0c3d0498.js"><link rel="prefetch" href="/assets/js/72.aee3f326.js"><link rel="prefetch" href="/assets/js/73.76f9ab8f.js"><link rel="prefetch" href="/assets/js/74.03ec551c.js"><link rel="prefetch" href="/assets/js/75.96bd35fd.js"><link rel="prefetch" href="/assets/js/76.8eea9d5c.js"><link rel="prefetch" href="/assets/js/77.13908ef5.js"><link rel="prefetch" href="/assets/js/78.609cb13a.js"><link rel="prefetch" href="/assets/js/79.0d4df250.js"><link rel="prefetch" href="/assets/js/8.215181eb.js"><link rel="prefetch" href="/assets/js/80.73ae2e4f.js"><link rel="prefetch" href="/assets/js/81.3927ddde.js"><link rel="prefetch" href="/assets/js/82.86b457e2.js"><link rel="prefetch" href="/assets/js/83.93f4c999.js"><link rel="prefetch" href="/assets/js/84.91f0b5d9.js"><link rel="prefetch" href="/assets/js/85.0e943352.js"><link rel="prefetch" href="/assets/js/86.82041574.js"><link rel="prefetch" href="/assets/js/87.5dd34590.js"><link rel="prefetch" href="/assets/js/88.e36c88ec.js"><link rel="prefetch" href="/assets/js/89.ded599d3.js"><link rel="prefetch" href="/assets/js/9.89288b36.js"><link rel="prefetch" href="/assets/js/90.60714017.js"><link rel="prefetch" href="/assets/js/91.06074398.js"><link rel="prefetch" href="/assets/js/92.26998e97.js"><link rel="prefetch" href="/assets/js/93.3bcbb0d7.js"><link rel="prefetch" href="/assets/js/94.bf2a69b4.js"><link rel="prefetch" href="/assets/js/95.dd3b1169.js"><link rel="prefetch" href="/assets/js/96.26bbe59b.js"><link rel="prefetch" href="/assets/js/97.b883aa89.js"><link rel="prefetch" href="/assets/js/98.cc07f12e.js"><link rel="prefetch" href="/assets/js/99.d38481a5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e7d7bc45.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>绅士喵呜的技术博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">绅士喵呜的技术博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" aria-current="page" class="nav-link router-link-exact-active router-link-active"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    hentaimiao
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>66</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" aria-current="page" class="nav-link router-link-exact-active router-link-active"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <ul class="sidebar-links"><li><a href="/backEnd/node/" aria-current="page" class="active sidebar-link">超详细 Node.js 上手</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>超详细 Node.js 上手</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>超详细 Node.js 上手</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>hentaimiao</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-06-20</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>Node.js</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>首次学习 Node.js，需要看着代码想问题，善用社区和文档，使用 CRM 学习法~
+
+前置条件，比较少：</p> <ol><li>VSCode</li> <li>Node.js</li> <li>Node.js 文档 https://nodejs.org/zh-cn/</li> <li>JS 相关知识不是必需的·</li></ol> <h2 id="运行-node-js"><a href="#运行-node-js" aria-hidden="true" class="header-anchor">#</a> 运行 node.js</h2> <blockquote><p>不要双击 Node.js 快捷方式</p></blockquote> <p>如何运行 Node.js：</p> <h3 id="在cmd-里运行-node"><a href="#在cmd-里运行-node" aria-hidden="true" class="header-anchor">#</a> 在cmd 里运行 node</h3> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfym6hyyytj30770330sr.jpg" alt="image-20200620115409541"></p> <p>按 ctrl + D 退出</p> <h3 id="node-接绝对路径"><a href="#node-接绝对路径" aria-hidden="true" class="header-anchor">#</a> node 接绝对路径</h3> <p>在一个目录下新建 1.js 文件并用 vscode 打开它</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfymccb4uqj30cn04xwex.jpg" alt="image-20200620115949892"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 1.js</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1.js'</span><span class="token punctuation">)</span>
+</code></pre></div><p>然后回到命令行用绝对路径去执行它</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyme0ms2tj309400zwee.jpg" alt="image-20200620120126543"></p> <h3 id="node-接相对路径"><a href="#node-接相对路径" aria-hidden="true" class="header-anchor">#</a> node 接相对路径</h3> <p>直接在目录下执行 1.js 文件</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfymf7rs5xj304h012mx1.jpg" alt="image-20200620120235455"></p> <p>不接文件名一样可以执行</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfymfrts5sj303f010glh.jpg" alt="image-20200620120307474"></p> <h3 id="node-e-接字符串"><a href="#node-e-接字符串" aria-hidden="true" class="header-anchor">#</a> node -e 接字符串</h3> <p>不用文件直接执行代码</p> <p>QWQ 有BUG，搜不到的那种</p> <h2 id="创建-todo-的实现过程"><a href="#创建-todo-的实现过程" aria-hidden="true" class="header-anchor">#</a> 创建 todo 的实现过程</h2> <p>最终效果：</p> <ol><li>node todo add 任务内容</li> <li>node todo list</li> <li>node todo done 1</li> <li>node todo delete 1</li> <li>node todo edit 2</li></ol> <p>首先创建一个 <code>todo.js</code></p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfynys33cej30dx06mmxy.jpg" alt="image-20200620125558581"></p> <p>然后编辑 <code>todo.js</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'欢迎使用 todoList 小程序'</span><span class="token punctuation">)</span>
+<span class="token comment">// vscode 命令行中 node 一下试试</span>
+</code></pre></div><p>现在想实现 <code>node todo add 做菜</code> 这样的命令，但是不知道怎么做，怎么办呢？</p> <p>打开 <code>google</code>，搜索 <code>node get command line</code> 自动补全 <code>node get command line args</code>：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyo4x4s5wj30ow0ihwi9.jpg" alt="image-20200620130152425"></p> <p>可以在万能的 stackoverflow 上找到相关问题并得出答案：</p> <p>![image-20200620130254157](/Users/xu/Library/Application Support/typora-user-images/image-20200620130254157.png)</p> <p>现在我会 node 相关知识嘛？不会，我会实现这个功能吗？我会了：</p> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'欢迎使用 todoList 小程序'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 抄来的代码</span>
+<span class="token comment">// process.argv.forEach(function (val, index, array) {</span>
+<span class="token comment">//   console.log(index + ': ' + val);</span>
+<span class="token comment">// });</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyo9t1trcj30bp0373yo.jpg" alt="image-20200620130632778"></p> <p>然后可以这么操作：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> nodePath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> todoPath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你想做的操作是'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你想操作的内容是'</span> <span class="token operator">+</span> content<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyogzxtptj30bn03xdg4.jpg" alt="image-20200620131024934"></p> <p>再然后创建一个任务列表：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> nodePath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> todoPath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你想做的操作是'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你想操作的内容是'</span> <span class="token operator">+</span> content<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> task <span class="token operator">=</span> content
+list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">table</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyogv7wpfj30bk05wjrs.jpg" alt="image-20200620131220856"></p> <p>好了，现在遇到了第一个问题：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyogr2x0lj30ch0bl75a.jpg" alt="image-20200620131314035"></p> <p>数据并没有被保存，因为 <code>const list = []</code> 每次都把任务清空了。</p> <p>那就把任务存在文件里好了，但是我还不会用 node 创建文件，很简单，搜索 <code>nodejs create file</code> 从谷歌继续抄：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyokrghb1j30nx0h275s.jpg" alt="image-20200620131706112"></p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyol6gipfj30oh0hh0u7.jpg" alt="image-20200620131729931"></p> <p>先来抄第一行：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>不理解啥意思对不对？看官网：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyop9v37oj30y20pltbx.jpg" alt="image-20200620132121197"></p> <p>好了现在知道这是个文件系统，但是对我来说英文好麻烦：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyotergcyj30np0lrtc8.jpg" alt="image-20200620132525454"></p> <p>这个就很棒了对不对？</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyovxndn0j30p30jjn14.jpg" alt="image-20200620132605082"></p> <p>这两个 api 都不是操作文档的，那就搜 <code>write</code>：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyownps9xj30q80moq7a.jpg" alt="image-20200620132833060"></p> <p>这里面有个 <code>fs.writeFileSync(file, data[, options])</code> 异步写入文件，看起很棒对不对？点开它：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyoxzw4h6j30kx0cctad.jpg" alt="image-20200620132950155"></p> <p>好了，继续工程：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// fs.writeFileSync('/Users/xu/Code/back-end/node/node-demo-todoList/db', '到此一游')</span>
+fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token string">'到此一游'</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfypshm9iuj30d10860tf.jpg" alt="image-20200620135908457"></p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfypsu1sk5j308p02pt8n.jpg" alt="image-20200620135929030"></p> <p>好了，现在会使用这个 API 了。</p> <p>新的问题：<code>const list = []</code> 会覆盖 db 文件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> task <span class="token operator">=</span> content
+list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+
+fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//以字符串形式</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfypybalhoj30hx045mxc.jpg" alt="image-20200620140445093"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> list <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件内容'</span> <span class="token operator">+</span> list<span class="token punctuation">)</span>
+
+<span class="token comment">// const list = []</span>
+
+<span class="token keyword">const</span> nodePath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> todoPath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> task <span class="token operator">=</span> content
+list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+
+<span class="token comment">// fs.writeFileSync('./db', list.toString())</span>
+
+console<span class="token punctuation">.</span><span class="token function">table</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyq34iq93j30in06tmyc.jpg" alt="image-20200620140921826"></p> <p>以字符串形式存取数据，就没法进行数据操作了对吧，也就是说存数据的时候就错了：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 测试</span>
+<span class="token keyword">const</span> task <span class="token operator">=</span> content
+list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+
+fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyq8fh5hpj309j015aa1.jpg" alt="image-20200620141427425"></p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyq8ntl8fj306901e3yd.jpg" alt="image-20200620141441514"></p> <p>怎么解决这个问题呢？使用一个简单的 API，JSON 序列化：</p> <div class="language-js extra-class"><pre class="language-js"><code>fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p>将数组以 JSON 格式存储在数据库中：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> list <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件内容：'</span> <span class="token operator">+</span> list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyqcqxg98j30bu01x74d.jpg" alt="image-20200620141836923"></p> <p>使用反序列化将拿到的数据再转化一下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件内容：'</span> <span class="token operator">+</span> list<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> nodePath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> todoPath <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> task <span class="token operator">=</span> content
+list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+
+fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyqey0cdnj309y01oaa3.jpg" alt="image-20200620142044083"></p> <p>现在可以烧两桶水了！</p> <h2 id="笨代码实现过程"><a href="#笨代码实现过程" aria-hidden="true" class="header-anchor">#</a> 笨代码实现过程</h2> <h3 id="node-todo-add-任务"><a href="#node-todo-add-任务" aria-hidden="true" class="header-anchor">#</a> node todo add 任务</h3> <p>从之前的研究可以知道，序列化方法原理很简单：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function-variable function">stringfy</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">array</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token string">'['</span> <span class="token operator">+</span> array<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">string</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token string">`'</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>string<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">']'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>存的时候序列化，取得时候反序列化。</p> <p>新的问题：db 文件如果被删掉那就没法读取了！需要添加一个判断，怎么判断呢？依然是谷歌搜索：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyqtdxztaj30lq0g177c.jpg" alt="image-20200620143434893"></p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyqy3h45tj30lk0nqgoo.jpg" alt="image-20200620143907344"></p> <p>别人怎么写你就怎么写，管他为什么：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// doSomething</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// doSomething</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> task <span class="token operator">=</span> content
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">const</span> task <span class="token operator">=</span> content
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>然后就获得了一个有点蠢的代码，但是我就是不优化：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyr81ju2aj30ho057jsc.jpg" alt="image-20200620144840881"></p> <p>为啥报错了呢？</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyr9lcrmfj30l80k640w.jpg" alt="image-20200620145011579"></p> <p>被弃用了你不早说？那换一个 API 就好了：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> task <span class="token operator">=</span> content <span class="token comment">// 获取任务</span>
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span> <span class="token comment">// 加入队列</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 写入数据</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// 打印数据</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">const</span> task <span class="token operator">=</span> content
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>测试一下：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyrc180lwj30ap047q3b.jpg" alt="image-20200620145231129"></p> <p>好了，花了这么久，<code>node todo add 任务</code> 功能就实现了！</p> <h3 id="node-todo-list"><a href="#node-todo-list" aria-hidden="true" class="header-anchor">#</a> node todo list</h3> <p>想列出所有任务，该怎么实现呢？先把 <code>verb</code> 给判断一下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span><span class="token punctuation">(</span>verb <span class="token operator">===</span> <span class="token string">'add'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  
+    <span class="token keyword">const</span> task <span class="token operator">=</span> content <span class="token comment">// 获取任务</span>
+    list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span> <span class="token comment">// 加入队列</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 写入数据</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// 打印数据</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  
+    <span class="token keyword">const</span> task <span class="token operator">=</span> content
+    list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token operator">...</span>
+</code></pre></div><p>然后再来实现 <code>todo list</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>verb <span class="token operator">===</span> <span class="token string">'list'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你的动作是：'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'不支持此动作'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyrjgv6g7j308200v3yf.jpg" alt="image-20200620145940413"></p> <p>但是有个 BUG，很明显无法操作空文件，后面优化的时候一起解决。</p> <h3 id="node-todo-delete-1"><a href="#node-todo-delete-1" aria-hidden="true" class="header-anchor">#</a> node todo delete 1</h3> <p>我想从数组里删除匹配的字段，咋整？搜索谷歌：</p> <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyrsernluj30rv0lan2s.jpg" alt="image-20200620150815383"></p> <p>九种方法你敢信？找一个看起来舒服的：</p> <div class="language-js extra-class"><pre class="language-js"><code>  list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>verb <span class="token operator">===</span> <span class="token string">'delete'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> n <span class="token operator">=</span> content
+  list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfys87mfrcj308l01rt8r.jpg" alt="image-20200620152327132"></p> <h3 id="node-todo-done-1"><a href="#node-todo-done-1" aria-hidden="true" class="header-anchor">#</a> node todo done 1</h3> <p>获取指定字符串再修改 好麻烦啊，来给每个任务接一个 <code>bool</code> 标识任务代表它没完成：</p> <div class="language-js extra-class"><pre class="language-js"><code>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>task<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyscdgfatj30c401qjri.jpg" alt="image-20200620152727719"></p> <p>再来改 <code>done</code> 命令；</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>verb <span class="token operator">===</span> <span class="token string">'done'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> n <span class="token operator">=</span> content
+  list<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><h3 id="node-todo-edit-1"><a href="#node-todo-edit-1" aria-hidden="true" class="header-anchor">#</a> node todo edit 1</h3> <p>根据之前的经验很快写出 <code>edit</code>:</p> <div class="language- extra-class"><pre class="language-text"><code>} else if(verb === 'edit') {
+  const fileContent = fs.readFileSync('./db').toString()
+  const list = JSON.parse(fileContent)
+  const n = content
+  list[n-1][0] = '???'
+</code></pre></div><p>但是后面的编辑呢？很简单：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> edit <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token operator">...</span>
+  list<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> edit
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>verb <span class="token operator">===</span> <span class="token string">'edit'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> n <span class="token operator">=</span> content
+  list<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> edit
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfysnjj2jxj309s01p74c.jpg" alt="image-20200620153811305"></p> <h2 id="代码极致优化"><a href="#代码极致优化" aria-hidden="true" class="header-anchor">#</a> 代码极致优化</h2> <p>功能都实现完毕了，但是存在两大问题：</p> <ul><li>重复率太高</li> <li>存在 BUG</li></ul> <p>先使用 <code>switch</code> 优化 <code>if else</code> 语句：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> edit <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>verb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token string">'add'</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+    
+      <span class="token keyword">const</span> task <span class="token operator">=</span> content <span class="token comment">// 获取任务</span>
+      list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>task<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 加入队列</span>
+      fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 写入数据</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// 打印数据</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+      <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    
+      <span class="token keyword">const</span> task <span class="token operator">=</span> content
+      list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>task<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+      fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'list'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'done'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> n <span class="token operator">=</span> content
+    list<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'delete'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> n <span class="token operator">=</span> content
+    list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'edit'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> n <span class="token operator">=</span> content
+    list<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> edit
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">'./db'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你的动作是：'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'不支持此动作'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以上是BUG的代码形式，解决重复：</p> <ol><li><p>vscode 快捷键将 './db' 替换 dbPath：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> dbPath <span class="token operator">=</span> <span class="token string">'/Users/xu/Code/back-end/node/node-demo-todoList/db'</span>
+</code></pre></div></li> <li><p>函数抽取公共方法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> list
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>不写多与代码：</p> <div class="language-js extra-class"><pre class="language-js"><code>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>content<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div></li></ol> <p>可以让代码更语义化：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> edit <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> dbPath <span class="token operator">=</span> <span class="token string">'/Users/xu/Code/back-end/node/node-demo-todoList/db'</span>
+
+<span class="token keyword">function</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> list
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">addTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>content<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">removeTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">markTaskAsDone</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">editTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index<span class="token punctuation">,</span> newContent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> newContent
+<span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>verb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token string">'add'</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+      <span class="token function">addTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+      <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// 写入数据</span>
+      <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+      <span class="token function">addTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+      <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+      <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'list'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'done'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> n <span class="token operator">=</span> content
+    list<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'delete'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">removeTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'edit'</span><span class="token punctuation">:</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">editTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">,</span> edit<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你的动作是：'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'不支持此动作'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>更好地改代码，得从更高的纬度去看：</p> <p>​	每一个方法都有存取文件的组成，而 <code>add</code> 方法太复杂了，因为它处理了一个异常情况，需要确保不存在异常情况，怎么解决呢？</p> <p>​	在外部解决问题： <code>fs.statSync(dbPath)</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">try</span><span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">statSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>通过观察是否报错来做判断，确保在方法调用前，db 文件必在：</p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token keyword">case</span> <span class="token string">'add'</span><span class="token punctuation">:</span>
+    list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">addTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// 写入数据</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="改-bug"><a href="#改-bug" aria-hidden="true" class="header-anchor">#</a> 改 BUG</h3> <p>要在 <code>fetch()</code> 中对 list 变量 做一个判断，判断是否存在，并给一个空数组兜底。</p> <h3 id="代码韩国行"><a href="#代码韩国行" aria-hidden="true" class="header-anchor">#</a> 代码韩国行</h3> <p>整容之后：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> edit <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> dbPath <span class="token operator">=</span> <span class="token string">'/Users/xu/Code/back-end/node/node-demo-todoList/db'</span>
+
+
+<span class="token keyword">function</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">return</span> list
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">addTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>content<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">removeTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">markTaskAsDone</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">editTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index<span class="token punctuation">,</span> newContent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> newContent
+<span class="token punctuation">}</span>
+
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">statSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>verb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token string">'add'</span><span class="token punctuation">:</span>
+    <span class="token function">addTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span> <span class="token comment">// 写入数据</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'list'</span><span class="token punctuation">:</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'done'</span><span class="token punctuation">:</span>
+    <span class="token function">markTaskAsDone</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'delete'</span><span class="token punctuation">:</span>
+    <span class="token function">removeTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'edit'</span><span class="token punctuation">:</span>
+    <span class="token function">editTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">,</span> edit<span class="token punctuation">)</span>
+    <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你的动作是：'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'不支持此动作'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>看到 <code>save() display()</code> 还是在重复，继续整容：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> verb <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> content <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> edit <span class="token operator">=</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> dbPath <span class="token operator">=</span> <span class="token string">'/Users/xu/Code/back-end/node/node-demo-todoList/db'</span>
+
+<span class="token function">ensureDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>verb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token string">'add'</span><span class="token punctuation">:</span>
+    <span class="token function">addTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'list'</span><span class="token punctuation">:</span>
+    <span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'done'</span><span class="token punctuation">:</span>
+    <span class="token function">markTaskAsDone</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'delete'</span><span class="token punctuation">:</span>
+    <span class="token function">removeTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">'edit'</span><span class="token punctuation">:</span>
+    <span class="token function">editTask</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> content<span class="token punctuation">,</span> edit<span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'你的动作是：'</span> <span class="token operator">+</span> verb<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'不支持此动作'</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">display</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>verb <span class="token operator">!==</span> <span class="token string">'list'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">save</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 帮助函数</span>
+<span class="token keyword">function</span> <span class="token function">ensureDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span><span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">statSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fileContent <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>dbPath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> list
+  <span class="token keyword">try</span><span class="token punctuation">{</span>
+    list <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>fileContent<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> list
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">addTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span>content<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">removeTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">markTaskAsDone</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">editTask</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> index<span class="token punctuation">,</span> newContent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  list<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> newContent
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="优化用户体验"><a href="#优化用户体验" aria-hidden="true" class="header-anchor">#</a> 优化用户体验</h3> <p>使用系统变量优化代码：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> dbPath <span class="token operator">=</span> __dirname <span class="token operator">+</span> <span class="token string">'/db'</span>
+</code></pre></div><p>但是这样平台兼容性不好，使用一个函数：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> dbPath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'db'</span><span class="token punctuation">)</span>
+</code></pre></div><p>修改一下 <code>display()</code> 优化体验：</p> <div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token keyword">function</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>list<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> flag <span class="token operator">=</span> list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token boolean">true</span> <span class="token operator">?</span> <span class="token string">'[√]'</span> <span class="token punctuation">:</span> <span class="token string">'[.]'</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'任务内容：'</span> <span class="token operator">+</span> flag <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfyulffz4tj308f02jq2x.jpg" alt="image-20200620164521727"></p> <p>在全局使用这个脚本文件：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> ~/.bashrc
+
+<span class="token function">alias</span> td<span class="token operator">=</span><span class="token string">'node /Users/xu/Code/back-end/node/node-demo-todoList/todo.js'</span>
+
+<span class="token function">source</span> ~/.bashrc
+</code></pre></div><h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <p>虽然很短很简单，但是从这篇文章学到了：</p> <ol><li>如何获取命令行参数</li> <li>如何创建文件</li> <li>如何改写文件</li> <li>如何使用 JSON 序列化</li> <li>如何使用循环或 map</li></ol> <h3 id="重点"><a href="#重点" aria-hidden="true" class="header-anchor">#</a> 重点</h3> <p>Node.js 不熟悉怎么办？</p> <ol><li>真人求助</li> <li>文档查阅</li> <li>Google搜索</li> <li>copy-run-fmodify（CRM 学习大法）</li></ol> <p>console.log() 调试</p> <ol><li>不管什么语言，都可以用 log 去调试</li></ol> <p>目的</p> <ol><li>Node.js 并不可怕</li> <li>了解命令行</li> <li>命令行很有趣</li></ol> <h3 id="结论"><a href="#结论" aria-hidden="true" class="header-anchor">#</a> 结论</h3> <p>如何学习 Node.js</p> <ol><li>做一个小功能</li> <li>使用 Node.js 实现它</li> <li>不会就问</li> <li>完成并优化思考</li> <li>再想一个小功能</li></ol> <p>系统学习 Node.js</p> <ol><li>通读官方文档</li> <li>了解 Node.js Web 框架</li> <li>学号 JS / TS</li></ol></div> <footer class="page-edit" style="display:none;"><div class="edit-link"><a href="https://github.com/hentai-miao/blog-vuepress/edit/master/docs/backEnd/node/README.md" target="_blank" rel="noopener noreferrer">编辑此页面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最终更新于: </span> <span class="time">6/20/2020, 5:15:56 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.f09e1a8f.js" defer></script><script src="/assets/js/3.6380eba5.js" defer></script><script src="/assets/js/1.86ff7d31.js" defer></script><script src="/assets/js/21.6074112f.js" defer></script>
+  </body>
+</html>

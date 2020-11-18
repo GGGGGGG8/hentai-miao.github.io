@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS 基础 - AJAX | 绅士喵呜的技术博客</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="  ">
+    <link rel="preload" href="/assets/css/0.styles.e7d7bc45.css" as="style"><link rel="preload" href="/assets/js/app.f09e1a8f.js" as="script"><link rel="preload" href="/assets/js/3.6380eba5.js" as="script"><link rel="preload" href="/assets/js/1.86ff7d31.js" as="script"><link rel="preload" href="/assets/js/70.db0613c6.js" as="script"><link rel="prefetch" href="/assets/js/10.5517d1b6.js"><link rel="prefetch" href="/assets/js/100.92371dc9.js"><link rel="prefetch" href="/assets/js/11.0573e311.js"><link rel="prefetch" href="/assets/js/12.0875f58d.js"><link rel="prefetch" href="/assets/js/13.71642ae4.js"><link rel="prefetch" href="/assets/js/14.36f8acdb.js"><link rel="prefetch" href="/assets/js/15.6215165a.js"><link rel="prefetch" href="/assets/js/16.485c8436.js"><link rel="prefetch" href="/assets/js/17.03710596.js"><link rel="prefetch" href="/assets/js/18.1935d804.js"><link rel="prefetch" href="/assets/js/19.1389efb6.js"><link rel="prefetch" href="/assets/js/20.083b5e26.js"><link rel="prefetch" href="/assets/js/21.6074112f.js"><link rel="prefetch" href="/assets/js/22.7ee932d9.js"><link rel="prefetch" href="/assets/js/23.b5b2417f.js"><link rel="prefetch" href="/assets/js/24.16e24b97.js"><link rel="prefetch" href="/assets/js/25.c0f615e7.js"><link rel="prefetch" href="/assets/js/26.54e45f38.js"><link rel="prefetch" href="/assets/js/27.1a2c9280.js"><link rel="prefetch" href="/assets/js/28.b770ec38.js"><link rel="prefetch" href="/assets/js/29.acca8bd0.js"><link rel="prefetch" href="/assets/js/30.d2532d72.js"><link rel="prefetch" href="/assets/js/31.eb2b3d90.js"><link rel="prefetch" href="/assets/js/32.6565c348.js"><link rel="prefetch" href="/assets/js/33.c7bc65b2.js"><link rel="prefetch" href="/assets/js/34.1bf2f3da.js"><link rel="prefetch" href="/assets/js/35.d3385f69.js"><link rel="prefetch" href="/assets/js/36.5cfe3ec3.js"><link rel="prefetch" href="/assets/js/37.26aef80a.js"><link rel="prefetch" href="/assets/js/38.a35b1680.js"><link rel="prefetch" href="/assets/js/39.8a99a996.js"><link rel="prefetch" href="/assets/js/4.8ca4a540.js"><link rel="prefetch" href="/assets/js/40.3ccc91a6.js"><link rel="prefetch" href="/assets/js/41.d6b84276.js"><link rel="prefetch" href="/assets/js/42.bf751eb9.js"><link rel="prefetch" href="/assets/js/43.410217ff.js"><link rel="prefetch" href="/assets/js/44.1500d4ec.js"><link rel="prefetch" href="/assets/js/45.37818d2d.js"><link rel="prefetch" href="/assets/js/46.e865b48f.js"><link rel="prefetch" href="/assets/js/47.e854ab11.js"><link rel="prefetch" href="/assets/js/48.28bcbd91.js"><link rel="prefetch" href="/assets/js/49.cb7462d2.js"><link rel="prefetch" href="/assets/js/5.3153c171.js"><link rel="prefetch" href="/assets/js/50.2217c9c1.js"><link rel="prefetch" href="/assets/js/51.cfadb2b8.js"><link rel="prefetch" href="/assets/js/52.752ecedc.js"><link rel="prefetch" href="/assets/js/53.7c8e434c.js"><link rel="prefetch" href="/assets/js/54.ec8b8cb9.js"><link rel="prefetch" href="/assets/js/55.e86e5fbd.js"><link rel="prefetch" href="/assets/js/56.19995147.js"><link rel="prefetch" href="/assets/js/57.c3f8dd98.js"><link rel="prefetch" href="/assets/js/58.d0d3ab90.js"><link rel="prefetch" href="/assets/js/59.04d9b9ea.js"><link rel="prefetch" href="/assets/js/6.f20cbf4e.js"><link rel="prefetch" href="/assets/js/60.1b51b1c9.js"><link rel="prefetch" href="/assets/js/61.ca052798.js"><link rel="prefetch" href="/assets/js/62.dbb692ec.js"><link rel="prefetch" href="/assets/js/63.f254ed9a.js"><link rel="prefetch" href="/assets/js/64.f27c1117.js"><link rel="prefetch" href="/assets/js/65.da43f37a.js"><link rel="prefetch" href="/assets/js/66.ac41ad1b.js"><link rel="prefetch" href="/assets/js/67.139f543f.js"><link rel="prefetch" href="/assets/js/68.9281c085.js"><link rel="prefetch" href="/assets/js/69.bec927a5.js"><link rel="prefetch" href="/assets/js/7.08bf542b.js"><link rel="prefetch" href="/assets/js/71.0c3d0498.js"><link rel="prefetch" href="/assets/js/72.aee3f326.js"><link rel="prefetch" href="/assets/js/73.76f9ab8f.js"><link rel="prefetch" href="/assets/js/74.03ec551c.js"><link rel="prefetch" href="/assets/js/75.96bd35fd.js"><link rel="prefetch" href="/assets/js/76.8eea9d5c.js"><link rel="prefetch" href="/assets/js/77.13908ef5.js"><link rel="prefetch" href="/assets/js/78.609cb13a.js"><link rel="prefetch" href="/assets/js/79.0d4df250.js"><link rel="prefetch" href="/assets/js/8.215181eb.js"><link rel="prefetch" href="/assets/js/80.73ae2e4f.js"><link rel="prefetch" href="/assets/js/81.3927ddde.js"><link rel="prefetch" href="/assets/js/82.86b457e2.js"><link rel="prefetch" href="/assets/js/83.93f4c999.js"><link rel="prefetch" href="/assets/js/84.91f0b5d9.js"><link rel="prefetch" href="/assets/js/85.0e943352.js"><link rel="prefetch" href="/assets/js/86.82041574.js"><link rel="prefetch" href="/assets/js/87.5dd34590.js"><link rel="prefetch" href="/assets/js/88.e36c88ec.js"><link rel="prefetch" href="/assets/js/89.ded599d3.js"><link rel="prefetch" href="/assets/js/9.89288b36.js"><link rel="prefetch" href="/assets/js/90.60714017.js"><link rel="prefetch" href="/assets/js/91.06074398.js"><link rel="prefetch" href="/assets/js/92.26998e97.js"><link rel="prefetch" href="/assets/js/93.3bcbb0d7.js"><link rel="prefetch" href="/assets/js/94.bf2a69b4.js"><link rel="prefetch" href="/assets/js/95.dd3b1169.js"><link rel="prefetch" href="/assets/js/96.26bbe59b.js"><link rel="prefetch" href="/assets/js/97.b883aa89.js"><link rel="prefetch" href="/assets/js/98.cc07f12e.js"><link rel="prefetch" href="/assets/js/99.d38481a5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e7d7bc45.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>绅士喵呜的技术博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">绅士喵呜的技术博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    hentaimiao
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>66</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <ul class="sidebar-links"><li><a href="/frontEnd/js/" aria-current="page" class="sidebar-link">JS - 初探</a></li><li><a href="/frontEnd/js/js01.html" class="sidebar-link">JS - Canvas 画板</a></li><li><a href="/frontEnd/js/js02.html" class="sidebar-link">JS 基础 - 数据类型</a></li><li><a href="/frontEnd/js/js03.html" class="sidebar-link">JS基础 - 内存图</a></li><li><a href="/frontEnd/js/js04.html" class="sidebar-link">JS基础 - 原型</a></li><li><a href="/frontEnd/js/js05.html" class="sidebar-link">JS基础 - 数组</a></li><li><a href="/frontEnd/js/js06.html" class="sidebar-link">JS基础 - 函数</a></li><li><a href="/frontEnd/js/js07.html" class="sidebar-link">JS基础 - DOM</a></li><li><a href="/frontEnd/js/js08.html" class="sidebar-link">JS基础 - JQuery</a></li><li><a href="/frontEnd/js/js09.html" class="sidebar-link">JS 基础 - DOM 事件</a></li><li><a href="/frontEnd/js/js10.html" class="sidebar-link">JS 基础 - JSONP</a></li><li><a href="/frontEnd/js/js11.html" aria-current="page" class="active sidebar-link">JS 基础 - AJAX</a></li><li><a href="/frontEnd/js/js12.html" class="sidebar-link">JS 基础 - 实现 AJAX</a></li><li><a href="/frontEnd/js/js13.html" class="sidebar-link">JS 基础 - 面向对象编程</a></li><li><a href="/frontEnd/js/js14.html" class="sidebar-link">JS 基础 - 虚拟 DOM</a></li><li><a href="/frontEnd/js/js15.html" class="sidebar-link">JS进阶 - 函数</a></li><li><a href="/frontEnd/js/js16.html" class="sidebar-link">JS进阶 - 异步</a></li><li><a href="/frontEnd/js/js17.html" class="sidebar-link">JS进阶 - 面向对象</a></li><li><a href="/frontEnd/js/js18.html" class="sidebar-link">JS进阶 - 重构</a></li><li><a href="/frontEnd/js/js19.html" class="sidebar-link">JS进阶 - MVC</a></li><li><a href="/frontEnd/js/js20.html" class="sidebar-link">JS进阶 - 双向绑定</a></li><li><a href="/frontEnd/js/js21.html" class="sidebar-link">DOM 历史、流模型及事件委托</a></li><li><a href="/frontEnd/js/js22.html" class="sidebar-link">JS 中授权的三种方式</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>JS 基础 - AJAX</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>JS 基础 - AJAX</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>hentaimiao</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2019-12-06</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>js</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>预习：http://javascript.ruanyifeng.com/bom/ajax.html</p> <p>代码：https://github.com/FrankFang/nodejs-test-cors</p> <p>要点：</p> <ol><li><p>你才返回对象，你全家都返回对象</p></li> <li><p>JS 是一门语言，JSON 是另一门语言，JSON 这门语言抄袭了 JS这门语言</p></li> <li><p>AJAX 就是用 JS 发请求</p></li> <li><p>响应的第四部分是字符串，可以用 JSON 语法表示一个对象，也可以用 JSON 语法表示一个数组，还可以用 XML 语法，还可以用 HTML 语法，还可以用 CSS 语法，还可以用 JS 语法，还可以用我自创的语法</p></li></ol> <h2 id="如何发请求"><a href="#如何发请求" aria-hidden="true" class="header-anchor">#</a> 如何发请求？</h2> <p>用 form 可以发请求，但是会刷新页面或新开页面</p> <p>用 a 可以发 get 请求，但是也会刷新页面或新开页面</p> <p>用 img 可以发 get 请求，但是只能以图片的形式展示</p> <p>用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示</p> <p>用 script 可以发 get 请求，但是只能以脚本的形式运行</p> <p>有没有什么方式可以实现</p> <ol><li><p>get、post、put、delete 请求都行</p></li> <li><p>想以什么形式展示就以什么形式展示</p></li></ol> <h2 id="微软的突破"><a href="#微软的突破" aria-hidden="true" class="header-anchor">#</a> 微软的突破</h2> <p>IE 5 率先在 JS 中引入 ActiveX 对象（API），使得 JS 可以直接发起 HTTP 请求。
+随后 Mozilla、 Safari、 Opera 也跟进（抄袭）了，取名 XMLHttpRequest，并被纳入 W3C 规范</p> <h2 id="ajax"><a href="#ajax" aria-hidden="true" class="header-anchor">#</a> AJAX</h2> <p>Jesse James Garrett 讲如下技术取名叫做 AJAX：异步的 JavaScript 和 XML</p> <ol><li><p>使用 XMLHttpRequest 发请求</p></li> <li><p>服务器返回 XML 格式的字符串</p></li> <li><p>JS 解析 XML，并更新局部页面</p></li></ol> <h2 id="如何使用-xmlhttprequest"><a href="#如何使用-xmlhttprequest" aria-hidden="true" class="header-anchor">#</a> 如何使用 XMLHttpRequest</h2> <div class="language-js extra-class"><pre class="language-js"><code>myButton<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+ 	<span class="token keyword">let</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 	request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token string">'/xxx'</span><span class="token punctuation">)</span> <span class="token comment">// 配置request</span>
+ 	request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 	request<span class="token punctuation">.</span><span class="token function-variable function">onreadystatechange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'请求响应都完毕了'</span><span class="token punctuation">)</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>status<span class="token punctuation">)</span>
+       <span class="token keyword">if</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>status <span class="token operator">&gt;=</span> <span class="token number">200</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>status <span class="token operator">&lt;</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'说明请求成功'</span><span class="token punctuation">)</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> request<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span>
+       <span class="token keyword">let</span> string <span class="token operator">=</span> request<span class="token punctuation">.</span>responseText
+       <span class="token comment">// 把符合 JSON 语法的字符串</span>
+       <span class="token comment">// 转换成 JS 对应的值</span>
+       <span class="token keyword">let</span> object <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span> 
+       <span class="token comment">// JSON.parse 是浏览器提供的</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> object<span class="token punctuation">)</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'object.note'</span><span class="token punctuation">)</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>object<span class="token punctuation">.</span>note<span class="token punctuation">)</span>
+     <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>status <span class="token operator">&gt;=</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'说明请求失败'</span><span class="token punctuation">)</span> 
+     <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">// 后端代码</span>
+
+ <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>path<span class="token operator">===</span><span class="token string">'/xxx'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  response<span class="token punctuation">.</span>statusCode <span class="token operator">=</span> <span class="token number">200</span>
+  response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/json;charset=utf-8'</span><span class="token punctuation">)</span>
+  response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">,</span> <span class="token string">'http://frank.com:8001'</span><span class="token punctuation">)</span>
+  response<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`
+  {
+   &quot;note&quot;:{
+   &quot;to&quot;: &quot;小谷&quot;,
+   &quot;from&quot;: &quot;方方&quot;,
+   &quot;heading&quot;: &quot;打招呼&quot;,
+   &quot;content&quot;: &quot;hi&quot;
+   }
+  }
+  `</span></span><span class="token punctuation">)</span>
+  response<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="jsonp-一门新语言"><a href="#jsonp-一门新语言" aria-hidden="true" class="header-anchor">#</a> JSONP -- 一门新语言</h2> <p><a href="http://json.org/" target="_blank" rel="noopener noreferrer">http://json.org<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="同源策略"><a href="#同源策略" aria-hidden="true" class="header-anchor">#</a> 同源策略</h2> <p>只有 协议+端口+域名 一模一样才允许发 AJAX 请求</p> <p>一模一样一模一样一模一样一模一样一模一样一模一样一模一样一模一样</p> <ol><li><a href="http://baidu.com/" target="_blank" rel="noopener noreferrer">http://baidu.com<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 可以向 <a href="http://www.baidu.com/" target="_blank" rel="noopener noreferrer">http://www.baidu.com<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 发 AJAX 请求吗 no</li> <li><a href="http://baidu.com/" target="_blank" rel="noopener noreferrer">http://baidu.com:80<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 可以向 <a href="http://baidu.com:81/" target="_blank" rel="noopener noreferrer">http://baidu.com:81<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 发 AJAX 请求吗 no</li></ol> <p>浏览器必须保证：</p> <p>​	只有 协议 + 端口 + 域名 一模一样才允许发送 AJAX 请求</p> <p>​	CORS 可以告诉浏览器，我们是一家人，不要阻止他</p> <p>突破同源策略 === 跨域  Cross-Origin Resource Sharing</p> <h2 id="cors-跨域"><a href="#cors-跨域" aria-hidden="true" class="header-anchor">#</a> CORS 跨域</h2> <p>CORS是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是W3C标准，是跨源AJAX请求的根本解决方法。相比JSONP只能发<code>GET</code>请求，CORS允许任何类型的请求。</p> <h2 id="请使用原生-js-写出一个-ajax-请求"><a href="#请使用原生-js-写出一个-ajax-请求" aria-hidden="true" class="header-anchor">#</a> 请使用原生 JS 写出一个 AJAX 请求</h2> <p>（代码中必须出现 XMLHttpRequest）</p> <div class="language- extra-class"><pre class="language-text"><code>main.js
+
+​```
+
+mybutton.onclick = ()=&gt;{
+	let request = new XMLHttpRequest()
+	request.open('GET','/xxx')
+	request.send()
+	request.onreadystatechange = ()=&gt;{
+		if(request.readystate === 4) {
+			if(request.status &gt;= 200 &amp;&amp; request.status) {
+				let string = request.responseText
+				let string = window.JSON.parse(string)
+			}
+		}
+	}
+} 
+
+​```
+
+
+后台的server.js，处理请求
+
+​```
+
+if(path === '/xxx') {
+	response.statusCode = 200
+	response.setHeader('Content-Type','text/json;charset=utf-8')
+	response.write(`
+		{&quot;me&quot;:&quot;爸爸&quot;}
+`	)
+	response.end()
+}
+
+​```
+</code></pre></div></div> <footer class="page-edit" style="display:none;"><div class="edit-link"><a href="https://github.com/hentai-miao/blog-vuepress/edit/master/docs/frontEnd/js/js11.md" target="_blank" rel="noopener noreferrer">编辑此页面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最终更新于: </span> <span class="time">6/11/2020, 12:30:41 AM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.f09e1a8f.js" defer></script><script src="/assets/js/3.6380eba5.js" defer></script><script src="/assets/js/1.86ff7d31.js" defer></script><script src="/assets/js/70.db0613c6.js" defer></script>
+  </body>
+</html>

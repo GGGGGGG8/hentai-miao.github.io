@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ES6 - 模块加载方案 | 绅士喵呜的技术博客</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="  ">
+    <link rel="preload" href="/assets/css/0.styles.e7d7bc45.css" as="style"><link rel="preload" href="/assets/js/app.f09e1a8f.js" as="script"><link rel="preload" href="/assets/js/3.6380eba5.js" as="script"><link rel="preload" href="/assets/js/1.86ff7d31.js" as="script"><link rel="preload" href="/assets/js/55.e86e5fbd.js" as="script"><link rel="prefetch" href="/assets/js/10.5517d1b6.js"><link rel="prefetch" href="/assets/js/100.92371dc9.js"><link rel="prefetch" href="/assets/js/11.0573e311.js"><link rel="prefetch" href="/assets/js/12.0875f58d.js"><link rel="prefetch" href="/assets/js/13.71642ae4.js"><link rel="prefetch" href="/assets/js/14.36f8acdb.js"><link rel="prefetch" href="/assets/js/15.6215165a.js"><link rel="prefetch" href="/assets/js/16.485c8436.js"><link rel="prefetch" href="/assets/js/17.03710596.js"><link rel="prefetch" href="/assets/js/18.1935d804.js"><link rel="prefetch" href="/assets/js/19.1389efb6.js"><link rel="prefetch" href="/assets/js/20.083b5e26.js"><link rel="prefetch" href="/assets/js/21.6074112f.js"><link rel="prefetch" href="/assets/js/22.7ee932d9.js"><link rel="prefetch" href="/assets/js/23.b5b2417f.js"><link rel="prefetch" href="/assets/js/24.16e24b97.js"><link rel="prefetch" href="/assets/js/25.c0f615e7.js"><link rel="prefetch" href="/assets/js/26.54e45f38.js"><link rel="prefetch" href="/assets/js/27.1a2c9280.js"><link rel="prefetch" href="/assets/js/28.b770ec38.js"><link rel="prefetch" href="/assets/js/29.acca8bd0.js"><link rel="prefetch" href="/assets/js/30.d2532d72.js"><link rel="prefetch" href="/assets/js/31.eb2b3d90.js"><link rel="prefetch" href="/assets/js/32.6565c348.js"><link rel="prefetch" href="/assets/js/33.c7bc65b2.js"><link rel="prefetch" href="/assets/js/34.1bf2f3da.js"><link rel="prefetch" href="/assets/js/35.d3385f69.js"><link rel="prefetch" href="/assets/js/36.5cfe3ec3.js"><link rel="prefetch" href="/assets/js/37.26aef80a.js"><link rel="prefetch" href="/assets/js/38.a35b1680.js"><link rel="prefetch" href="/assets/js/39.8a99a996.js"><link rel="prefetch" href="/assets/js/4.8ca4a540.js"><link rel="prefetch" href="/assets/js/40.3ccc91a6.js"><link rel="prefetch" href="/assets/js/41.d6b84276.js"><link rel="prefetch" href="/assets/js/42.bf751eb9.js"><link rel="prefetch" href="/assets/js/43.410217ff.js"><link rel="prefetch" href="/assets/js/44.1500d4ec.js"><link rel="prefetch" href="/assets/js/45.37818d2d.js"><link rel="prefetch" href="/assets/js/46.e865b48f.js"><link rel="prefetch" href="/assets/js/47.e854ab11.js"><link rel="prefetch" href="/assets/js/48.28bcbd91.js"><link rel="prefetch" href="/assets/js/49.cb7462d2.js"><link rel="prefetch" href="/assets/js/5.3153c171.js"><link rel="prefetch" href="/assets/js/50.2217c9c1.js"><link rel="prefetch" href="/assets/js/51.cfadb2b8.js"><link rel="prefetch" href="/assets/js/52.752ecedc.js"><link rel="prefetch" href="/assets/js/53.7c8e434c.js"><link rel="prefetch" href="/assets/js/54.ec8b8cb9.js"><link rel="prefetch" href="/assets/js/56.19995147.js"><link rel="prefetch" href="/assets/js/57.c3f8dd98.js"><link rel="prefetch" href="/assets/js/58.d0d3ab90.js"><link rel="prefetch" href="/assets/js/59.04d9b9ea.js"><link rel="prefetch" href="/assets/js/6.f20cbf4e.js"><link rel="prefetch" href="/assets/js/60.1b51b1c9.js"><link rel="prefetch" href="/assets/js/61.ca052798.js"><link rel="prefetch" href="/assets/js/62.dbb692ec.js"><link rel="prefetch" href="/assets/js/63.f254ed9a.js"><link rel="prefetch" href="/assets/js/64.f27c1117.js"><link rel="prefetch" href="/assets/js/65.da43f37a.js"><link rel="prefetch" href="/assets/js/66.ac41ad1b.js"><link rel="prefetch" href="/assets/js/67.139f543f.js"><link rel="prefetch" href="/assets/js/68.9281c085.js"><link rel="prefetch" href="/assets/js/69.bec927a5.js"><link rel="prefetch" href="/assets/js/7.08bf542b.js"><link rel="prefetch" href="/assets/js/70.db0613c6.js"><link rel="prefetch" href="/assets/js/71.0c3d0498.js"><link rel="prefetch" href="/assets/js/72.aee3f326.js"><link rel="prefetch" href="/assets/js/73.76f9ab8f.js"><link rel="prefetch" href="/assets/js/74.03ec551c.js"><link rel="prefetch" href="/assets/js/75.96bd35fd.js"><link rel="prefetch" href="/assets/js/76.8eea9d5c.js"><link rel="prefetch" href="/assets/js/77.13908ef5.js"><link rel="prefetch" href="/assets/js/78.609cb13a.js"><link rel="prefetch" href="/assets/js/79.0d4df250.js"><link rel="prefetch" href="/assets/js/8.215181eb.js"><link rel="prefetch" href="/assets/js/80.73ae2e4f.js"><link rel="prefetch" href="/assets/js/81.3927ddde.js"><link rel="prefetch" href="/assets/js/82.86b457e2.js"><link rel="prefetch" href="/assets/js/83.93f4c999.js"><link rel="prefetch" href="/assets/js/84.91f0b5d9.js"><link rel="prefetch" href="/assets/js/85.0e943352.js"><link rel="prefetch" href="/assets/js/86.82041574.js"><link rel="prefetch" href="/assets/js/87.5dd34590.js"><link rel="prefetch" href="/assets/js/88.e36c88ec.js"><link rel="prefetch" href="/assets/js/89.ded599d3.js"><link rel="prefetch" href="/assets/js/9.89288b36.js"><link rel="prefetch" href="/assets/js/90.60714017.js"><link rel="prefetch" href="/assets/js/91.06074398.js"><link rel="prefetch" href="/assets/js/92.26998e97.js"><link rel="prefetch" href="/assets/js/93.3bcbb0d7.js"><link rel="prefetch" href="/assets/js/94.bf2a69b4.js"><link rel="prefetch" href="/assets/js/95.dd3b1169.js"><link rel="prefetch" href="/assets/js/96.26bbe59b.js"><link rel="prefetch" href="/assets/js/97.b883aa89.js"><link rel="prefetch" href="/assets/js/98.cc07f12e.js"><link rel="prefetch" href="/assets/js/99.d38481a5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e7d7bc45.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>绅士喵呜的技术博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">绅士喵呜的技术博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    hentaimiao
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>66</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/backEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  backEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/frontEnd/" class="nav-link"><i class="iconfont undefined"></i>
+  frontEnd
+</a></li><li class="dropdown-item"><!----> <a href="/categories/software/" class="nav-link"><i class="iconfont undefined"></i>
+  software
+</a></li><li class="dropdown-item"><!----> <a href="/categories/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/categories/建造中/" class="nav-link"><i class="iconfont undefined"></i>
+  建造中
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      前端学习
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/js/" class="nav-link"><i class="iconfont undefined"></i>
+  JS
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/es6/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  ES6
+</a></li></ul></li><li class="dropdown-item"><h4>动画</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/greensock/" class="nav-link"><i class="iconfont undefined"></i>
+  GreenSock
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/react/" class="nav-link"><i class="iconfont undefined"></i>
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontEnd/axios/" class="nav-link"><i class="iconfont undefined"></i>
+  Axios
+</a></li><li class="dropdown-subitem"><a href="/frontEnd/TypeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  Webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      后端探索
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/http/" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/other/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      软件开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backEnd/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git版本控制
+</a></li><li class="dropdown-item"><!----> <a href="/development/agile/" class="nav-link"><i class="iconfont undefined"></i>
+  敏捷开发
+</a></li></ul></div></div> <a href="https://github.com/hentai-miao/blog-vuepress" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <ul class="sidebar-links"><li><a href="/frontEnd/es6/" aria-current="page" class="sidebar-link">ES6 - 理解 let</a></li><li><a href="/frontEnd/es6/es601.html" class="sidebar-link">ES6 - 箭头函数</a></li><li><a href="/frontEnd/es6/es602.html" class="sidebar-link">ES6 - 三点运算符 &amp; 字符串</a></li><li><a href="/frontEnd/es6/es603.html" class="sidebar-link">ES6 - Promise</a></li><li><a href="/frontEnd/es6/es604.html" aria-current="page" class="active sidebar-link">ES6 - 模块加载方案</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>ES6 - 模块加载方案</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>hentaimiao</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>ES6 - 模块加载方案</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>hentaimiao</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-05-08</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>es6</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2> <p>本篇我们重点介绍以下四种模块加载规范：</p> <ol><li>AMD</li> <li>CMD</li> <li>CommonJS</li> <li>ES6 模块</li></ol> <p>最后再延伸讲下 Babel 的编译和 webpack 的打包原理。</p> <h2 id="require-js"><a href="#require-js" aria-hidden="true" class="header-anchor">#</a> require.js</h2> <p>在了解 AMD 规范之前，我们先来看看 require.js 的使用方式。</p> <p>项目目录为：</p> <div class="language- extra-class"><pre class="language-text"><code>* project/
+    * index.html
+    * vender/
+        * main.js
+        * require.js
+        * add.js
+        * square.js
+        * multiply.js
+复制代码
+</code></pre></div><p><code>index.html</code> 的内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;require.js&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Content&lt;/h1&gt;
+        &lt;script data-main=&quot;vender/main&quot; src=&quot;vender/require.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre></div><p><code>data-main=&quot;vender/main&quot;</code> 表示主模块是 <code>vender</code> 下的 <code>main.js</code>。</p> <p><code>main.js</code> 的配置如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// main.js
+require(['./add', './square'], function(addModule, squareModule) {
+    console.log(addModule.add(1, 1))
+    console.log(squareModule.square(3))
+});
+复制代码
+</code></pre></div><p>require 的第一个参数表示依赖的模块的路径，第二个参数表示此模块的内容。</p> <p>由此可以看出，<code>主模块</code>依赖 <code>add 模块</code>和 <code>square 模块</code>。</p> <p>我们看下 <code>add 模块</code>即 <code>add.js</code> 的内容：</p> <div class="language- extra-class"><pre class="language-text"><code>// add.js
+define(function() {
+    console.log('加载了 add 模块');
+    var add = function(x, y) {&amp;emsp;
+        return x + y;
+    };
+
+    return {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+        add: add
+    };
+});
+复制代码
+</code></pre></div><p><code>requirejs</code> 为全局添加了 <code>define</code> 函数，你只要按照这种约定的方式书写这个模块即可。</p> <p>那如果依赖的模块又依赖了其他模块呢？</p> <p>我们来看看<code>主模块</code>依赖的 <code>square 模块</code>， <code>square 模块</code>的作用是求出一个数字的平方，比如输入 3 就返回 9，该模块依赖一个<code>乘法模块</code>，该乘法模块即 <code>multiply.js</code> 的代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// multiply.js
+define(function() {
+    console.log('加载了 multiply 模块')
+    var multiply = function(x, y) {&amp;emsp;
+        return x * y;
+    };
+
+    return {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+        multiply: multiply
+    };
+});
+复制代码
+</code></pre></div><p>而 <code>square 模块</code>就要用到 <code>multiply 模块</code>，其实写法跟 main.js 添加依赖模块一样：</p> <div class="language- extra-class"><pre class="language-text"><code>// square.js
+define(['./multiply'], function(multiplyModule) {
+    console.log('加载了 square 模块')
+    return {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+        square: function(num) {
+            return multiplyModule.multiply(num, num)
+        }
+    };
+});
+复制代码
+</code></pre></div><p>require.js 会自动分析依赖关系，将需要加载的模块正确加载。</p> <p>requirejs 项目 Demo 地址：<a href="https://github.com/mqyqingfeng/Blog/tree/master/demos/ES6/module/requirejs" target="_blank" rel="noopener noreferrer">github.com/mqyqingfeng…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>而如果我们在浏览器中打开 <code>index.html</code>，打印的顺序为：</p> <div class="language- extra-class"><pre class="language-text"><code>加载了 add 模块
+加载了 multiply 模块
+加载了 square 模块
+2
+9
+复制代码
+</code></pre></div><h2 id="amd"><a href="#amd" aria-hidden="true" class="header-anchor">#</a> AMD</h2> <p>在上节，我们说了这样一句话：</p> <blockquote><p><code>requirejs</code> 为全局添加了 <code>define</code> 函数，你只要按照这种约定的方式书写这个模块即可。</p></blockquote> <p>那这个约定的书写方式是指什么呢？</p> <p>指的便是 The Asynchronous Module Definition (AMD) 规范。</p> <p>所以其实 <strong>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</strong></p> <p>你去看 <a href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)" target="_blank" rel="noopener noreferrer">AMD 规范<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 的内容，其主要内容就是定义了 define 函数该如何书写，只要你按照这个规范书写模块和依赖，require.js 就能正确的进行解析。</p> <h2 id="sea-js"><a href="#sea-js" aria-hidden="true" class="header-anchor">#</a> sea.js</h2> <p>在国内，经常与 AMD 被一起提起的还有 CMD，CMD 又是什么呢？我们从 <code>sea.js</code> 的使用开始说起。</p> <p>文件目录与 requirejs 项目目录相同:</p> <div class="language- extra-class"><pre class="language-text"><code>* project/
+    * index.html
+    * vender/
+        * main.js
+        * require.js
+        * add.js
+        * square.js
+        * multiply.js
+复制代码
+</code></pre></div><p><code>index.html</code> 的内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;sea.js&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Content&lt;/h1&gt;
+    &lt;script src=&quot;vender/sea.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+    // 在页面中加载主模块
+    seajs.use(&quot;./vender/main&quot;);
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+复制代码
+</code></pre></div><p>main.js 的内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// main.js
+define(function(require, exports, module) {
+    var addModule = require('./add');
+    console.log(addModule.add(1, 1))
+
+    var squareModule = require('./square');
+    console.log(squareModule.square(3))
+});
+复制代码
+</code></pre></div><p>add.js 的内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// add.js
+define(function(require, exports, module) {
+    console.log('加载了 add 模块')
+    var add = function(x, y) {&amp;emsp;
+        return x + y;
+    };
+    module.exports = {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+        add: add
+    };
+});
+复制代码
+</code></pre></div><p>square.js 的内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>define(function(require, exports, module) {
+    console.log('加载了 square 模块')
+    var multiplyModule = require('./multiply');
+    module.exports = {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+        square: function(num) {
+            return multiplyModule.multiply(num, num)
+        }
+    };
+
+});
+复制代码
+</code></pre></div><p>multiply.js 的内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>define(function(require, exports, module) {
+    console.log('加载了 multiply 模块')
+    var multiply = function(x, y) {&amp;emsp;
+        return x * y;
+    };
+    module.exports = {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+        multiply: multiply
+    };
+});
+复制代码
+</code></pre></div><p>跟第一个例子是同样的依赖结构，即 main 依赖 add 和 square，square 又依赖 multiply。</p> <p>seajs 项目 Demo 地址：<a href="https://github.com/mqyqingfeng/Blog/tree/master/demos/ES6/module/seajs" target="_blank" rel="noopener noreferrer">github.com/mqyqingfeng…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>而如果我们在浏览器中打开 <code>index.html</code>，打印的顺序为：</p> <div class="language- extra-class"><pre class="language-text"><code>加载了 add 模块
+2
+加载了 square 模块
+加载了 multiply 模块
+9
+复制代码
+</code></pre></div><h2 id="cmd"><a href="#cmd" aria-hidden="true" class="header-anchor">#</a> CMD</h2> <p>与 AMD 一样，CMD 其实就是 SeaJS 在推广过程中对模块定义的规范化产出。</p> <p>你去看 <a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="noopener noreferrer">CMD 规范<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>的内容，主要内容就是描述该如何定义模块，如何引入模块，如何导出模块，只要你按照这个规范书写代码，sea.js 就能正确的进行解析。</p> <h2 id="amd-与-cmd-的区别"><a href="#amd-与-cmd-的区别" aria-hidden="true" class="header-anchor">#</a> AMD 与 CMD 的区别</h2> <p>从 sea.js 和 require.js 的例子可以看出：</p> <p>1.CMD 推崇<strong>依赖就近</strong>，AMD 推崇<strong>依赖前置</strong>。看两个项目中的 main.js：</p> <div class="language- extra-class"><pre class="language-text"><code>// require.js 例子中的 main.js
+// 依赖必须一开始就写好
+require(['./add', './square'], function(addModule, squareModule) {
+    console.log(addModule.add(1, 1))
+    console.log(squareModule.square(3))
+});
+复制代码
+// sea.js 例子中的 main.js
+define(function(require, exports, module) {
+    var addModule = require('./add');
+    console.log(addModule.add(1, 1))
+
+    // 依赖可以就近书写
+    var squareModule = require('./square');
+    console.log(squareModule.square(3))
+});
+复制代码
+</code></pre></div><p>2.对于依赖的模块，AMD 是<strong>提前执行</strong>，CMD 是<strong>延迟执行</strong>。看两个项目中的打印顺序：</p> <div class="language- extra-class"><pre class="language-text"><code>// require.js
+加载了 add 模块
+加载了 multiply 模块
+加载了 square 模块
+2
+9
+复制代码
+// sea.js
+加载了 add 模块
+2
+加载了 square 模块
+加载了 multiply 模块
+9
+复制代码
+</code></pre></div><p>AMD 是将需要使用的模块先加载完再执行代码，而 CMD 是在 require 的时候才去加载模块文件，加载完再接着执行。</p> <h2 id="感谢"><a href="#感谢" aria-hidden="true" class="header-anchor">#</a> 感谢</h2> <p>感谢 require.js 和 sea.js 在推动 JavaScript 模块化发展方面做出的贡献。</p> <h2 id="commonjs"><a href="#commonjs" aria-hidden="true" class="header-anchor">#</a> CommonJS</h2> <p>AMD 和 CMD 都是用于浏览器端的模块规范，而在服务器端比如 node，采用的则是 CommonJS 规范。</p> <p>导出模块的方式：</p> <div class="language- extra-class"><pre class="language-text"><code>var add = function(x, y) {&amp;emsp;
+    return x + y;
+};
+
+module.exports.add = add;
+复制代码
+</code></pre></div><p>引入模块的方式：</p> <div class="language- extra-class"><pre class="language-text"><code>var add = require('./add.js');
+console.log(add.add(1, 1));
+复制代码
+</code></pre></div><p>我们将之前的例子改成 CommonJS 规范：</p> <div class="language- extra-class"><pre class="language-text"><code>// main.js
+var add = require('./add.js');
+console.log(add.add(1, 1))
+
+var square = require('./square.js');
+console.log(square.square(3));
+复制代码
+// add.js
+console.log('加载了 add 模块')
+
+var add = function(x, y) {&amp;emsp;
+    return x + y;
+};
+
+module.exports.add = add;
+复制代码
+// multiply.js
+console.log('加载了 multiply 模块')
+
+var multiply = function(x, y) {&amp;emsp;
+    return x * y;
+};
+
+module.exports.multiply = multiply;
+复制代码
+// square.js
+console.log('加载了 square 模块')
+
+var multiply = require('./multiply.js');
+
+var square = function(num) {&amp;emsp;
+    return multiply.multiply(num, num);
+};
+
+module.exports.square = square;
+复制代码
+</code></pre></div><p>CommonJS 项目 Demo 地址：<a href="https://github.com/mqyqingfeng/Blog/tree/master/demos/ES6/module/commonJS" target="_blank" rel="noopener noreferrer">github.com/mqyqingfeng…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>如果我们执行 <code>node main.js</code>，打印的顺序为：</p> <div class="language- extra-class"><pre class="language-text"><code>加载了 add 模块
+2
+加载了 square 模块
+加载了 multiply 模块
+9
+复制代码
+</code></pre></div><p>跟 sea.js 的执行结果一致，也是在 require 的时候才去加载模块文件，加载完再接着执行。</p> <h2 id="commonjs-与-amd"><a href="#commonjs-与-amd" aria-hidden="true" class="header-anchor">#</a> CommonJS 与 AMD</h2> <p>引用阮一峰老师的<a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="noopener noreferrer">《JavaScript 标准参考教程（alpha）》<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>:</p> <blockquote><p>CommonJS 规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。</p></blockquote> <blockquote><p>AMD规范则是非同步加载模块，允许指定回调函数。</p> <p>由于 Node.js 主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以 CommonJS 规范比较适用。</p></blockquote> <blockquote><p>但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用 AMD 规范。</p></blockquote> <h2 id="es6"><a href="#es6" aria-hidden="true" class="header-anchor">#</a> ES6</h2> <p>ECMAScript2015 规定了新的模块加载方案。</p> <p>导出模块的方式：</p> <div class="language- extra-class"><pre class="language-text"><code>var firstName = 'Michael';
+var lastName = 'Jackson';
+var year = 1958;
+
+export {firstName, lastName, year};
+复制代码
+</code></pre></div><p>引入模块的方式：</p> <div class="language- extra-class"><pre class="language-text"><code>import {firstName, lastName, year} from './profile';
+复制代码
+</code></pre></div><p>我们再将上面的例子改成 ES6 规范：</p> <p>目录结构与 requirejs 和 seajs 目录结构一致。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;ES6&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Content&lt;/h1&gt;
+        &lt;script src=&quot;vender/main.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre></div><p>注意！浏览器加载 ES6 模块，也使用 <code>&lt;script&gt;</code> 标签，但是要加入 <code>type=&quot;module&quot;</code> 属性。</p> <div class="language- extra-class"><pre class="language-text"><code>// main.js
+import {add} from './add.js';
+console.log(add(1, 1))
+
+import {square} from './square.js';
+console.log(square(3));
+复制代码
+// add.js
+console.log('加载了 add 模块')
+
+var add = function(x, y) {
+    return x + y;
+};
+
+export {add}
+复制代码
+// multiply.js
+console.log('加载了 multiply 模块')
+
+var multiply = function(x, y) {&amp;emsp;
+    return x * y;
+};
+
+export {multiply}
+复制代码
+// square.js
+console.log('加载了 square 模块')
+
+import {multiply} from './multiply.js';
+
+var square = function(num) {&amp;emsp;
+    return multiply(num, num);
+};
+
+export {square}
+复制代码
+</code></pre></div><p>ES6-Module 项目 Demo 地址：<a href="https://github.com/mqyqingfeng/Blog/tree/master/demos/ES6/module/ES6" target="_blank" rel="noopener noreferrer">github.com/mqyqingfeng…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>值得注意的，在 Chrome 中，如果直接打开，会报跨域错误，必须开启服务器，保证文件同源才可以有效果。</p> <p>为了验证这个效果你可以：</p> <div class="language- extra-class"><pre class="language-text"><code>cnpm install http-server -g
+复制代码
+</code></pre></div><p>然后进入该目录，执行</p> <div class="language- extra-class"><pre class="language-text"><code>http-server
+复制代码
+</code></pre></div><p>在浏览器打开 <code>http://localhost:8080/</code> 即可查看效果。</p> <p>打印的顺序为：</p> <div class="language- extra-class"><pre class="language-text"><code>加载了 add 模块
+加载了 multiply 模块
+加载了 square 模块
+2
+9
+复制代码
+</code></pre></div><p>跟 require.js 的执行结果是一致的，也就是将需要使用的模块先加载完再执行代码。</p> <h2 id="es6-与-commonjs"><a href="#es6-与-commonjs" aria-hidden="true" class="header-anchor">#</a> ES6 与 CommonJS</h2> <p>引用阮一峰老师的 <a href="http://es6.ruanyifeng.com/#docs/module-loader" target="_blank" rel="noopener noreferrer">《ECMAScript 6 入门》<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>：</p> <blockquote><p>它们有两个重大差异。</p> <ol><li>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。</li> <li>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。</li></ol></blockquote> <p>第二个差异可以从两个项目的打印结果看出，导致这种差别的原因是：</p> <blockquote><p>因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p></blockquote> <p>重点解释第一个差异。</p> <blockquote><p>CommonJS 模块输出的是值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。</p></blockquote> <p>举个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>// 输出模块 counter.js
+var counter = 3;
+function incCounter() {
+  counter++;
+}
+module.exports = {
+    counter: counter,
+    incCounter: incCounter,
+};
+复制代码
+// 引入模块 main.js
+var mod = require('./counter');
+
+console.log(mod.counter);  // 3
+mod.incCounter();
+console.log(mod.counter); // 3
+复制代码
+</code></pre></div><p>counter.js 模块加载以后，它的内部变化就影响不到输出的 mod.counter 了。这是因为 mod.counter 是一个原始类型的值，会被缓存。</p> <p>但是如果修改 counter 为一个引用类型的话：</p> <div class="language- extra-class"><pre class="language-text"><code>// 输出模块 counter.js
+var counter = {
+    value: 3
+};
+
+function incCounter() {
+    counter.value++;
+}
+module.exports = {
+    counter: counter,
+    incCounter: incCounter,
+};
+复制代码
+// 引入模块 main.js
+var mod = require('./counter.js');
+
+console.log(mod.counter.value); // 3
+mod.incCounter();
+console.log(mod.counter.value); // 4
+复制代码
+</code></pre></div><p>value 是会发生改变的。不过也可以说这是 &quot;值的拷贝&quot;，只是对于引用类型而言，值指的其实是引用。</p> <p>而如果我们将这个例子改成 ES6:</p> <div class="language- extra-class"><pre class="language-text"><code>// counter.js
+export let counter = 3;
+export function incCounter() {
+  counter++;
+}
+
+// main.js
+import { counter, incCounter } from './counter';
+console.log(counter); // 3
+incCounter();
+console.log(counter); // 4
+复制代码
+</code></pre></div><p>这是因为</p> <blockquote><p>ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令 import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。换句话说，ES6 的 import 有点像 Unix 系统的“符号连接”，原始值变了，import 加载的值也会跟着变。因此，ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。</p></blockquote> <h2 id="babel"><a href="#babel" aria-hidden="true" class="header-anchor">#</a> Babel</h2> <p>鉴于浏览器支持度的问题，如果要使用 ES6 的语法，一般都会借助 Babel，可对于 import 和 export 而言，只借助 Babel 就可以吗？</p> <p>让我们看看 Babel 是怎么编译 import 和 export 语法的。</p> <div class="language- extra-class"><pre class="language-text"><code>// ES6
+var firstName = 'Michael';
+var lastName = 'Jackson';
+var year = 1958;
+
+export {firstName, lastName, year};
+复制代码
+// Babel 编译后
+'use strict';
+
+Object.defineProperty(exports, &quot;__esModule&quot;, {
+  value: true
+});
+var firstName = 'Michael';
+var lastName = 'Jackson';
+var year = 1958;
+
+exports.firstName = firstName;
+exports.lastName = lastName;
+exports.year = year;
+复制代码
+</code></pre></div><p>是不是感觉有那么一点奇怪？编译后的语法更像是 CommonJS 规范，再看 import 的编译结果：</p> <div class="language- extra-class"><pre class="language-text"><code>// ES6
+import {firstName, lastName, year} from './profile';
+复制代码
+// Babel 编译后
+'use strict';
+
+var _profile = require('./profile');
+复制代码
+</code></pre></div><p>你会发现 Babel 只是把 ES6 模块语法转为 CommonJS 模块语法，然而浏览器是不支持这种模块语法的，所以直接跑在浏览器会报错的，如果想要在浏览器中运行，还是需要使用打包工具将代码打包。</p> <h2 id="webpack"><a href="#webpack" aria-hidden="true" class="header-anchor">#</a> webpack</h2> <p>Babel 将 ES6 模块转为 CommonJS 后， webpack 又是怎么做的打包的呢？它该如何将这些文件打包在一起，从而能保证正确的处理依赖，以及能在浏览器中运行呢？</p> <p>首先为什么浏览器中不支持 CommonJS 语法呢？</p> <p>这是因为浏览器环境中并没有 module、 exports、 require 等环境变量。</p> <p>换句话说，webpack 打包后的文件之所以在浏览器中能运行，就是靠模拟了这些变量的行为。</p> <p>那怎么模拟呢？</p> <p>我们以 CommonJS 项目中的 square.js 为例，它依赖了 multiply 模块：</p> <div class="language- extra-class"><pre class="language-text"><code>console.log('加载了 square 模块')
+
+var multiply = require('./multiply.js');
+
+
+var square = function(num) {&amp;emsp;
+    return multiply.multiply(num, num);
+};
+
+module.exports.square = square;
+复制代码
+</code></pre></div><p>webpack 会将其包裹一层，注入这些变量：</p> <div class="language- extra-class"><pre class="language-text"><code>function(module, exports, require) {
+    console.log('加载了 square 模块');
+
+    var multiply = require(&quot;./multiply&quot;);
+    module.exports = {
+        square: function(num) {
+            return multiply.multiply(num, num);
+        }
+    };
+}
+复制代码
+</code></pre></div><p>那 webpack 又会将 CommonJS 项目的代码打包成什么样呢？我写了一个精简的例子，你可以直接复制到浏览器中查看效果：</p> <div class="language- extra-class"><pre class="language-text"><code>// 自执行函数
+(function(modules) {
+
+    // 用于储存已经加载过的模块
+    var installedModules = {};
+
+    function require(moduleName) {
+
+        if (installedModules[moduleName]) {
+            return installedModules[moduleName].exports;
+        }
+
+        var module = installedModules[moduleName] = {
+            exports: {}
+        };
+
+        modules[moduleName](module, module.exports, require);
+
+        return module.exports;
+    }
+
+    // 加载主模块
+    return require(&quot;main&quot;);
+
+})({
+    &quot;main&quot;: function(module, exports, require) {
+
+        var addModule = require(&quot;./add&quot;);
+        console.log(addModule.add(1, 1))
+
+        var squareModule = require(&quot;./square&quot;);
+        console.log(squareModule.square(3));
+
+    },
+    &quot;./add&quot;: function(module, exports, require) {
+        console.log('加载了 add 模块');
+
+        module.exports = {
+            add: function(x, y) {
+                return x + y;
+            }
+        };
+    },
+    &quot;./square&quot;: function(module, exports, require) {
+        console.log('加载了 square 模块');
+
+        var multiply = require(&quot;./multiply&quot;);
+        module.exports = {
+            square: function(num) {
+                return multiply.multiply(num, num);
+            }
+        };
+    },
+
+    &quot;./multiply&quot;: function(module, exports, require) {
+        console.log('加载了 multiply 模块');
+
+        module.exports = {
+            multiply: function(x, y) {
+                return x * y;
+            }
+        };
+    }
+})
+复制代码
+</code></pre></div><p>最终的执行结果为：</p> <div class="language- extra-class"><pre class="language-text"><code>加载了 add 模块
+2
+加载了 square 模块
+加载了 multiply 模块
+9
+复制代码
+</code></pre></div><h2 id="参考"><a href="#参考" aria-hidden="true" class="header-anchor">#</a> 参考</h2> <ul><li><a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="noopener noreferrer">《JavaScript 标准参考教程（alpha）》<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="http://es6.ruanyifeng.com/#docs/module-loader" target="_blank" rel="noopener noreferrer">《ECMAScript6 入门》<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://zhuanlan.zhihu.com/p/20731484" target="_blank" rel="noopener noreferrer">手写一个CommonJS打包工具（一）<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer class="page-edit" style="display:none;"><div class="edit-link"><a href="https://github.com/hentai-miao/blog-vuepress/edit/master/docs/frontEnd/es6/es604.md" target="_blank" rel="noopener noreferrer">编辑此页面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最终更新于: </span> <span class="time">6/11/2020, 12:30:41 AM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.f09e1a8f.js" defer></script><script src="/assets/js/3.6380eba5.js" defer></script><script src="/assets/js/1.86ff7d31.js" defer></script><script src="/assets/js/55.e86e5fbd.js" defer></script>
+  </body>
+</html>
